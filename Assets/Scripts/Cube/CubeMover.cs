@@ -68,7 +68,6 @@ public class CubeMover : MonoBehaviour
         return true;
     }
 
-
     private RaycastHit GetRaycastHit()
     {
         Ray ray = new Ray(transform.position, transform.up);
