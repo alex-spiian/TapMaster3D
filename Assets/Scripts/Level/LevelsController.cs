@@ -9,7 +9,7 @@ namespace Level
         [SerializeField] private GameObject[] _levelsPrefabs;
         [SerializeField] private Transform _spawnPoint;
 
-        private int _currentLevelIndex = 1;
+        private int _currentLevelIndex = 0;
         private GameObject _currentLevel;
 
         private void Awake()
