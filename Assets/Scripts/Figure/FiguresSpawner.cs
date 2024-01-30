@@ -27,6 +27,14 @@ public class FiguresSpawner : MonoBehaviour
                 {
                     startPosition.y += _figuresSpawnerConfig.YValueToBeOutOfCamera;
                 }
+                else if (i%3==0)
+                {
+                    startPosition.x += _figuresSpawnerConfig.YValueToBeOutOfCamera;
+                }
+                else if(i%3==1)
+                {
+                    startPosition.x -= _figuresSpawnerConfig.YValueToBeOutOfCamera;
+                }
                 else
                 {
                     startPosition.y -= _figuresSpawnerConfig.YValueToBeOutOfCamera;
