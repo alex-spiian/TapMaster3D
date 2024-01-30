@@ -1,3 +1,4 @@
+using Level;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/FiguresSpawnerConfig", fileName = "FiguresSpawnerConfig", order = 0)]

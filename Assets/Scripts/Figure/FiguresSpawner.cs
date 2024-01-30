@@ -1,64 +1,93 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using Level;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class FiguresSpawner : MonoBehaviour
 {
+    public event Action LevelWasCompleted;
+    
     [SerializeField]
     private FiguresSpawnerConfig _figuresSpawnerConfig;
-
-    private Transform[] _childrenTransforms;
-    private readonly List<Transform> _cubesTransforms = new();
+    
+    private CubeMover[] _childrenTransforms;
     private readonly List<Vector3> _cubesTargetPositions = new();
+    private int _counterOfGoneCubes;
+
+    private LevelsController _levelsController;
+    
+    
     private  void Awake()
     {
-        _childrenTransforms = GetComponentsInChildren<Transform>();
-
-        for (int i = 0; i < _childrenTransforms.Length; i++)
-        {
-            if (_childrenTransforms[i].tag == "Cube")
-            {
-                _cubesTransforms.Add(_childrenTransforms[i]);
-                
-                var startPosition = _childrenTransforms[i].position;
-                startPosition.y += _figuresSpawnerConfig.YValueToBeOutOfCamera;
-                
-                _cubesTargetPositions.Add(_childrenTransforms[i].position);
-                _childrenTransforms[i].position = startPosition;
-            }
-        }
+        // TODO: temp code
+        _levelsController = FindAnyObjectByType<LevelsController>();
         
+        LevelWasCompleted += _levelsController.LoadNextLevel;
+        
+        _childrenTransforms = GetComponentsInChildren<CubeMover>();
+
+        transform.position = new Vector3(0, 0, 6);
+        
+        SetStartPositionForChildren();
         StartCoroutine(MoveCubesInRow());
     }
 
+    private void MarkCubeAsGone()
+    {
+        _counterOfGoneCubes++;
+
+        if (_counterOfGoneCubes == _childrenTransforms.Length)
+        {
+            LevelWasCompleted?.Invoke();
+        }
+    }
+    
+
     private IEnumerator MoveCubesInRow()
     {
-        for (int i = 0; i < _cubesTransforms.Count; i++)
+        for (int i = 0; i < _childrenTransforms.Length; i++)
         {
-            StartCoroutine(MoveCubeSmoothly(i));
-            
+            _childrenTransforms[i].transform.DOMove(_cubesTargetPositions[i], 1);
             var minDelay = _figuresSpawnerConfig.MinDelayBetweenDrops;
             var maxDelay = _figuresSpawnerConfig.MaxDelayBetweenDrops;
             yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
         }
     }
 
-    private IEnumerator MoveCubeSmoothly(int index)
+    private void SetStartPositionForChildren()
     {
-        var currentTime = 0f;
-        var initialPosition = _cubesTransforms[index].position;
-        var targetPosition = _cubesTargetPositions[index];
-
-        while (currentTime < _figuresSpawnerConfig.CubeFallingDuration)
+        for (int i = 0; i < _childrenTransforms.Length; i++)
         {
-            currentTime += Time.deltaTime;
-            var progress = Mathf.Clamp01(currentTime / _figuresSpawnerConfig.CubeFallingDuration);
-
-            var newPosition = Vector3.Lerp(initialPosition, targetPosition, progress);
-            _cubesTransforms[index].position = newPosition;
-
-            yield return null;
+            _childrenTransforms[i].CubeWasGone += MarkCubeAsGone;
+           
+            var startPosition = _childrenTransforms[i].transform.position;
+            if (i%2==0) 
+            {
+                startPosition.y += _figuresSpawnerConfig.YValueToBeOutOfCamera;
+            }
+            else if (i%3==0)
+            {
+                startPosition.x += _figuresSpawnerConfig.YValueToBeOutOfCamera;
+            }
+            else if(i%3==1)
+            {
+                startPosition.x -= _figuresSpawnerConfig.YValueToBeOutOfCamera;
+            }
+            else
+            {
+                startPosition.y -= _figuresSpawnerConfig.YValueToBeOutOfCamera;
+            }
+            _cubesTargetPositions.Add(_childrenTransforms[i].transform.position);
+            _childrenTransforms[i].transform.position = startPosition;
         }
+    }
+
+    private void OnDestroy()
+    {
+        LevelWasCompleted -= _levelsController.LoadNextLevel;
+
     }
 }

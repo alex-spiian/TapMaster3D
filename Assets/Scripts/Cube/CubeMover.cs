@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CubeMover : MonoBehaviour
 {
+    public event Action CubeWasGone;
+    
     [SerializeField] private Vector3 _direction; 
     [SerializeField] private float _speed;
 
@@ -67,6 +71,7 @@ public class CubeMover : MonoBehaviour
         }
         return true;
     }
+
 
     private RaycastHit GetRaycastHit()
     {
