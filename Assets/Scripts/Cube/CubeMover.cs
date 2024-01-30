@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using DG.Tweening;
@@ -5,6 +6,8 @@ using UnityEngine;
 
 public class CubeMover : MonoBehaviour
 {
+    public event Action CubeWasGone;
+    
     [SerializeField] private Vector3 _direction; 
     [SerializeField] private float _speed;
 
@@ -29,16 +32,21 @@ public class CubeMover : MonoBehaviour
 
         _isMoving = true;
         _initialPosition = transform.position;
+        
+        CubeWasGone?.Invoke();
     }
     
     
     private IEnumerator MoveToObstacle(RaycastHit [] raycastHit)
     {
+        StartCoroutine(CheckObstacleAndMove(raycastHit));
+        
         _initialPosition = transform.position;
         if (!raycastHit.Any())
         {
             yield break;
         }
+        
         var target = raycastHit.First().collider.transform;
         var halfCubeSize = raycastHit.First().collider.bounds.size / 3f;
 
@@ -79,7 +87,7 @@ public class CubeMover : MonoBehaviour
     {
         var hits = GetRaycastHit();
         
-        if (hits.Length>1)
+        if (hits.Length > 0)
         {
             return false;
         }
@@ -94,5 +102,21 @@ public class CubeMover : MonoBehaviour
 
         return hits;
     }
+    
+    private IEnumerator CheckObstacleAndMove(RaycastHit[] hits)
+    {
+        var lastPosition = hits.First().transform.position;
+        
+        yield return new WaitForSeconds(0.1f);
+
+        if (Vector3.Distance(lastPosition, hits.First().transform.position) < 0.01f)
+        {
+            yield break;
+        }
+        
+        Debug.Log("YEEEEHUUUUUUU");
+        CubeWasGone?.Invoke();
+    }
+    
     
 }

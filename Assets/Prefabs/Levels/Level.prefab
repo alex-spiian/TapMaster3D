@@ -4492,6 +4492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 132375899569120669}
   - component: {fileID: -8419251351306844745}
+  - component: {fileID: 6048210603966241797}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -4590,6 +4591,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _figuresSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
+--- !u!114 &6048210603966241797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955016799984205153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6abfb53a0bd694151b623251ed69fa5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sensitivity: 15
 --- !u!1 &960556073241462397
 GameObject:
   m_ObjectHideFlags: 0
