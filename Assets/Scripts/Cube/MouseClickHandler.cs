@@ -11,7 +11,7 @@ public class MouseClickHandler : MonoBehaviour
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (!Physics.Raycast(ray, out var hit, 50f)) return;
 
-        if (hit.transform.tag == "Cube")
+        if (hit.transform.CompareTag("Cube"))
         {
             var cubeMover = hit.transform.GetComponent<CubeMover>();
             cubeMover.TryMove();
