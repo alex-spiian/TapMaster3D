@@ -11,12 +11,12 @@ public class CameraZoom : MonoBehaviour
     private Camera cam;
     private float initialPinchDistance; // Начальное расстояние между пальцами
 
-    void Start()
+    private void Start()
     {
         cam = Camera.main;
     }
 
-    void Update()
+    private void Update()
     {
         // Обработка зума с помощью колесика мыши
         float scroll = Input.GetAxis("Mouse ScrollWheel");
