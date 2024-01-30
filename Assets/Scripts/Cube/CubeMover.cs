@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
+using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class CubeMover : MonoBehaviour
@@ -31,14 +32,23 @@ public class CubeMover : MonoBehaviour
 
         _isMoving = true;
         _initialPosition = transform.position;
+        
+        CubeWasGone?.Invoke();
     }
     
     
-    private IEnumerator MoveToObstacle(RaycastHit raycastHit)
+    private IEnumerator MoveToObstacle(RaycastHit [] raycastHit)
     {
+        StartCoroutine(CheckObstacleAndMove(raycastHit));
+        
         _initialPosition = transform.position;
-        var target = raycastHit.collider.transform;
-        var halfCubeSize = raycastHit.collider.bounds.size / 3f;
+        if (!raycastHit.Any())
+        {
+            yield break;
+        }
+        
+        var target = raycastHit.First().collider.transform;
+        var halfCubeSize = raycastHit.First().collider.bounds.size / 3f;
 
         while (Vector3.Distance(transform.position, target.position) > halfCubeSize.magnitude)
         {
@@ -46,7 +56,19 @@ public class CubeMover : MonoBehaviour
             yield return null;
         }
 
+        StartCoroutine(ShakeObstacles(raycastHit));
         StartCoroutine(MoveBack());
+
+    }
+
+    private IEnumerator ShakeObstacles(RaycastHit[] raycastHit)
+    {
+        var obstacles = raycastHit;
+        for (var i = 0; i < obstacles.Length; i++)
+        {
+            obstacles[i].collider.transform.DOPunchScale(new Vector3(0,0,0.5f),0.2f);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     private IEnumerator MoveBack()
@@ -63,9 +85,9 @@ public class CubeMover : MonoBehaviour
 
     private bool IsWayFree()
     {
-        var hit = GetRaycastHit();
+        var hits = GetRaycastHit();
         
-        if (hit.collider != null)
+        if (hits.Length > 0)
         {
             return false;
         }
@@ -73,13 +95,28 @@ public class CubeMover : MonoBehaviour
     }
 
 
-    private RaycastHit GetRaycastHit()
+    private RaycastHit [] GetRaycastHit()
     {
         Ray ray = new Ray(transform.position, transform.up);
+        var hits = Physics.RaycastAll(ray, 5f);
 
-        Physics.Raycast(ray, out var hit, 5f);
-
-        return hit;
+        return hits;
     }
+    
+    private IEnumerator CheckObstacleAndMove(RaycastHit[] hits)
+    {
+        var lastPosition = hits.First().transform.position;
+        
+        yield return new WaitForSeconds(0.1f);
+
+        if (Vector3.Distance(lastPosition, hits.First().transform.position) < 0.01f)
+        {
+            yield break;
+        }
+        
+        Debug.Log("YEEEEHUUUUUUU");
+        CubeWasGone?.Invoke();
+    }
+    
     
 }
