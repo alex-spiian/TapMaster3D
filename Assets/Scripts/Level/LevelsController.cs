@@ -8,13 +8,24 @@ namespace Level
     {
         [SerializeField] private GameObject[] _levelsPrefabs;
         [SerializeField] private Transform _spawnPoint;
+        [SerializeField]private AudioClip _soundToPlay; // Звук для воспроизведения
 
-        private int _currentLevelIndex = 0;
+        private AudioSource _audioSource;
+        private int _currentLevelIndex = 1;
         private GameObject _currentLevel;
 
         private void Awake()
         {
             _currentLevel = Instantiate(_levelsPrefabs[_currentLevelIndex]);
+        }
+        
+        private void Start()
+        {
+            // Получаем компонент AudioSource на текущем объекте
+            _audioSource = GetComponent<AudioSource>();
+
+            // Устанавливаем звук для AudioSource
+            _audioSource.clip = _soundToPlay;
         }
 
         public void LoadNextLevel()
@@ -23,6 +34,7 @@ namespace Level
             _currentLevelIndex++;
             Destroy(_currentLevel);
             _currentLevel = Instantiate(_levelsPrefabs[_currentLevelIndex]);
+            _audioSource.Play();
         }
 
         public void Restart()

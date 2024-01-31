@@ -10,10 +10,21 @@ public class CubeMover : MonoBehaviour
     
     [SerializeField] private Vector3 _direction; 
     [SerializeField] private float _speed;
+    //[SerializeField] private AudioClip _soundToPlay; // Звук для воспроизведения
 
+    [SerializeField]private AudioSource[] _audioSource;
     private Vector3 _initialPosition;
     private bool _isMoving;
     
+    private void Start()
+    {
+        // Получаем компонент AudioSource на текущем объекте
+        _audioSource = GetComponents<AudioSource>();
+
+        // Устанавливаем звук для AudioSource
+        if (_audioSource != null && _audioSource.Length > 1) ;
+        //_audioSource[1].clip = _soundToPlay;
+    }
     private void Update()
     {
         if (_isMoving)
@@ -40,27 +51,25 @@ public class CubeMover : MonoBehaviour
     private IEnumerator MoveToObstacle(RaycastHit [] raycastHit)
     {
         raycastHit = raycastHit.OrderBy(hit => Vector3.Distance(transform.position, hit.point)).ToArray();
-
         StartCoroutine(CheckObstacleAndMove(raycastHit));
         
         _initialPosition = transform.position;
-        
         if (!raycastHit.Any())
         {
             yield break;
         }
         
         var target = raycastHit.First().collider.transform;
-        var halfCubeSize = raycastHit.First().collider.bounds.size / 2f;
 
-        while (Vector3.Distance(transform.position, target.position) > 1)
+        var halfCubeSize = raycastHit.First().collider.bounds.size / 3f;
+
+        while (target != null && Vector3.Distance(transform.position, target.position) > halfCubeSize.magnitude)
         {
             transform.Translate(Vector3.up * (_speed * Time.deltaTime));
             yield return null;
         }
 
         StartCoroutine(ShakeObstacles(raycastHit));
-        
         StartCoroutine(MoveBack());
 
     }
@@ -70,29 +79,24 @@ public class CubeMover : MonoBehaviour
         var obstacles = raycastHit;
         for (var i = 0; i < obstacles.Length; i++)
         {
+            if (obstacles[i].collider != null && obstacles[i].collider.transform != null)
             obstacles[i].collider.transform.DOPunchScale(new Vector3(0,0,0.5f),0.2f);
+            _audioSource[1].Play();
             yield return new WaitForSeconds(0.1f);
         }
     }
-    
 
     private IEnumerator MoveBack()
     {
-        Debug.Log("start position = " + _initialPosition);
-        
-        while (Vector3.SqrMagnitude(transform.position - _initialPosition) > 0.2f)
+        while (Vector3.Distance(transform.position, _initialPosition) > 0.1f)
         {
             transform.Translate(-Vector3.up * (_speed * Time.deltaTime));
-            Debug.Log("current position = " + transform.position);
-
             yield return null;
         }
 
         transform.position = _initialPosition;
-        Debug.Log("end position = " + transform.position);
-
     }
-    
+
 
     private bool IsWayFree()
     {
@@ -100,7 +104,6 @@ public class CubeMover : MonoBehaviour
         
         if (hits.Length > 0)
         {
-            //Debug.Log("впереди стоит " + hits.First().transform.GetInstanceID());
             return false;
         }
         return true;

@@ -19,7 +19,6 @@ public class FiguresSpawner : MonoBehaviour
 
     private LevelsController _levelsController;
     
-    
     private  void Awake()
     {
         // TODO: temp code
