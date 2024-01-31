@@ -61,8 +61,9 @@ public class CubeMover : MonoBehaviour
         
         var target = raycastHit.First().collider.transform;
 
-        var halfCubeSize = raycastHit.First().collider.bounds.size / 3f;
-
+        var halfCubeSize = raycastHit.First().collider.bounds.size / 2.5f;
+        
+        
         while (target != null && Vector3.Distance(transform.position, target.position) > halfCubeSize.magnitude)
         {
             transform.Translate(Vector3.up * (_speed * Time.deltaTime));
@@ -80,7 +81,7 @@ public class CubeMover : MonoBehaviour
         for (var i = 0; i < obstacles.Length; i++)
         {
             if (obstacles[i].collider != null && obstacles[i].collider.transform != null)
-            obstacles[i].collider.transform.DOPunchScale(new Vector3(0,0,0.5f),0.2f);
+            obstacles[i].collider.transform.DOPunchScale(new Vector3(0.2f,0.2f,0.2f),0.2f);
             _audioSource[1].Play();
             yield return new WaitForSeconds(0.1f);
         }
