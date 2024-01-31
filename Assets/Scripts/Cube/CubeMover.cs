@@ -10,10 +10,21 @@ public class CubeMover : MonoBehaviour
     
     [SerializeField] private Vector3 _direction; 
     [SerializeField] private float _speed;
+    [SerializeField] private AudioClip _soundToPlay; // Звук для воспроизведения
 
+    [SerializeField]private AudioSource[] _audioSource;
     private Vector3 _initialPosition;
     private bool _isMoving;
     
+    private void Start()
+    {
+        // Получаем компонент AudioSource на текущем объекте
+        _audioSource = GetComponents<AudioSource>();
+
+        // Устанавливаем звук для AudioSource
+        if(_audioSource!=null&&_audioSource.Length>1)
+        _audioSource[1].clip = _soundToPlay;
+    }
     private void Update()
     {
         if (_isMoving)
@@ -48,9 +59,10 @@ public class CubeMover : MonoBehaviour
         }
         
         var target = raycastHit.First().collider.transform;
+
         var halfCubeSize = raycastHit.First().collider.bounds.size / 3f;
 
-        while (Vector3.Distance(transform.position, target.position) > halfCubeSize.magnitude)
+        while (target != null && Vector3.Distance(transform.position, target.position) > halfCubeSize.magnitude)
         {
             transform.Translate(Vector3.up * (_speed * Time.deltaTime));
             yield return null;
@@ -66,7 +78,9 @@ public class CubeMover : MonoBehaviour
         var obstacles = raycastHit;
         for (var i = 0; i < obstacles.Length; i++)
         {
+            if (obstacles[i].collider != null && obstacles[i].collider.transform != null)
             obstacles[i].collider.transform.DOPunchScale(new Vector3(0,0,0.5f),0.2f);
+            _audioSource[1].Play();
             yield return new WaitForSeconds(0.1f);
         }
     }
