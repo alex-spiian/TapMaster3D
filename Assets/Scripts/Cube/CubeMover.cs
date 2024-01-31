@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CubeMover : MonoBehaviour
@@ -15,7 +17,9 @@ public class CubeMover : MonoBehaviour
     [SerializeField]private AudioSource[] _audioSource;
     private Vector3 _initialPosition;
     private bool _isMoving;
-    
+    private int _maxDistanceRay = 1;
+    private List<RaycastHit> _hits = new();
+
     private void Start()
     {
         // Получаем компонент AudioSource на текущем объекте
@@ -35,9 +39,10 @@ public class CubeMover : MonoBehaviour
 
     public void TryMove()
     {
+        RayCube();
         if (!IsWayFree())
         {
-            StartCoroutine(MoveToObstacle(GetRaycastHit()));
+            StartCoroutine(MoveToObstacle());
             return;
         }
 
@@ -48,20 +53,20 @@ public class CubeMover : MonoBehaviour
     }
     
     
-    private IEnumerator MoveToObstacle(RaycastHit [] raycastHit)
+    private IEnumerator MoveToObstacle()
     {
-        raycastHit = raycastHit.OrderBy(hit => Vector3.Distance(transform.position, hit.point)).ToArray();
-        StartCoroutine(CheckObstacleAndMove(raycastHit));
+        _hits = _hits.OrderBy(hit => Vector3.Distance(transform.position, hit.point)).ToList();
+        StartCoroutine(CheckObstacleAndMove());
         
         _initialPosition = transform.position;
-        if (!raycastHit.Any())
+        if (!_hits.Any())
         {
             yield break;
         }
         
-        var target = raycastHit.First().collider.transform;
+        var target = _hits.First().collider.transform;
 
-        var halfCubeSize = raycastHit.First().collider.bounds.size / 2.5f;
+        var halfCubeSize = _hits.First().collider.bounds.size / 2.5f;
         
         
         while (target != null && Vector3.Distance(transform.position, target.position) > halfCubeSize.magnitude)
@@ -70,19 +75,19 @@ public class CubeMover : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(ShakeObstacles(raycastHit));
+        StartCoroutine(ShakeObstacles());
         StartCoroutine(MoveBack());
 
     }
 
-    private IEnumerator ShakeObstacles(RaycastHit[] raycastHit)
+    private IEnumerator ShakeObstacles()
     {
-        var obstacles = raycastHit;
-        for (var i = 0; i < obstacles.Length; i++)
+        for (var i = 0; i < _hits.Count; i++)
         {
-            if (obstacles[i].collider != null && obstacles[i].collider.transform != null)
-            obstacles[i].collider.transform.DOPunchScale(new Vector3(0.2f,0.2f,0.2f),0.2f);
+            if (_hits[i].collider != null && _hits[i].collider.transform != null)
+                _hits[i].collider.transform.DOPunchScale(new Vector3(0.5f,0.5f,0.5f),0.2f);
             _audioSource[1].Play();
+            _hits[i].collider.transform.DOScale(Vector3.one, 0.2f);
             yield return new WaitForSeconds(0.1f);
         }
     }
@@ -101,9 +106,7 @@ public class CubeMover : MonoBehaviour
 
     private bool IsWayFree()
     {
-        var hits = GetRaycastHit();
-        
-        if (hits.Length > 0)
+        if (_hits.Count > 0)
         {
             return false;
         }
@@ -111,21 +114,36 @@ public class CubeMover : MonoBehaviour
     }
 
 
-    private RaycastHit [] GetRaycastHit()
+    private void RayCube()
     {
+        if (_hits.Count!=0)
+        {
+            _hits.Clear();
+        }
         Ray ray = new Ray(transform.position, transform.up);
-        var hits = Physics.RaycastAll(ray, 10f);
-
-        return hits;
+        RayObstacle(ray);
     }
-    
-    private IEnumerator CheckObstacleAndMove(RaycastHit[] hits)
+
+    private void RayObstacle(Ray ray)
     {
-        var lastPosition = hits.First().transform.position;
+        if (Physics.Raycast(ray, out var hit, _maxDistanceRay))
+        {
+            _hits.Add(hit);
+            if (hit.collider!=null)
+            {
+                Ray obstacleRay = new Ray(hit.transform.position, transform.up);
+                RayObstacle(obstacleRay);
+            }
+        }
+    }
+
+    private IEnumerator CheckObstacleAndMove()
+    {
+        var lastPosition = _hits.First().transform.position;
         
         yield return new WaitForSeconds(0.1f);
 
-        if (Vector3.Distance(lastPosition, hits.First().transform.position) < 0.01f)
+        if (Vector3.Distance(lastPosition, _hits.First().transform.position) < 0.01f)
         {
             yield break;
         }
