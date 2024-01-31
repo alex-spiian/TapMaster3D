@@ -196,8 +196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &3963976384978014110
 MonoBehaviour:
@@ -600,8 +600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &8513171540159137497
 MonoBehaviour:
@@ -1289,8 +1289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &3748684197292671406
 MonoBehaviour:
@@ -1610,8 +1610,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &2505038777618949424
 MonoBehaviour:
@@ -1982,8 +1982,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &3278904888532446771
 MonoBehaviour:
@@ -4190,8 +4190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &1673890490030128224
 MonoBehaviour:
@@ -5207,8 +5207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &1967741010841961742
 MonoBehaviour:
@@ -6869,8 +6869,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &5138788058857562570
 MonoBehaviour:
@@ -7273,8 +7273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &7183569031879621400
 MonoBehaviour:
@@ -8201,8 +8201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &9009738750618769676
 MonoBehaviour:
@@ -8843,8 +8843,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &2144132570233342474
 MonoBehaviour:
@@ -9560,8 +9560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &2788820025956345610
 MonoBehaviour:
@@ -10277,8 +10277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &7790051100951077743
 MonoBehaviour:
@@ -13359,8 +13359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &4660256248682901299
 MonoBehaviour:
@@ -13731,8 +13731,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &4615031497588259406
 MonoBehaviour:
@@ -14254,8 +14254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &8712947260421047443
 MonoBehaviour:

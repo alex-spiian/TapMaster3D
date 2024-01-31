@@ -10,7 +10,7 @@ public class CubeMover : MonoBehaviour
     
     [SerializeField] private Vector3 _direction; 
     [SerializeField] private float _speed;
-    //[SerializeField] private AudioClip _soundToPlay; // Звук для воспроизведения
+    [SerializeField] private AudioClip _soundToPlay; // Звук для воспроизведения
 
     [SerializeField]private AudioSource[] _audioSource;
     private Vector3 _initialPosition;
@@ -23,7 +23,7 @@ public class CubeMover : MonoBehaviour
 
         // Устанавливаем звук для AudioSource
         if (_audioSource != null && _audioSource.Length > 1) ;
-        //_audioSource[1].clip = _soundToPlay;
+        _audioSource[1].clip = _soundToPlay;
     }
     private void Update()
     {
@@ -88,7 +88,7 @@ public class CubeMover : MonoBehaviour
 
     private IEnumerator MoveBack()
     {
-        while (Vector3.Distance(transform.position, _initialPosition) > 0.1f)
+        while (Vector3.Distance(transform.position, _initialPosition) > 0.2f)
         {
             transform.Translate(-Vector3.up * (_speed * Time.deltaTime));
             yield return null;
@@ -113,7 +113,7 @@ public class CubeMover : MonoBehaviour
     private RaycastHit [] GetRaycastHit()
     {
         Ray ray = new Ray(transform.position, transform.up);
-        var hits = Physics.RaycastAll(ray, 5f);
+        var hits = Physics.RaycastAll(ray, 10f);
 
         return hits;
     }

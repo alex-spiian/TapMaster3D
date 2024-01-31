@@ -430,8 +430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &5400951106759774912
 MonoBehaviour:
@@ -1515,8 +1515,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &4851153496720627395
 MonoBehaviour:
@@ -1836,8 +1836,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &5208708815354690441
 MonoBehaviour:
@@ -2604,8 +2604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &7228898954148563492
 MonoBehaviour:
@@ -2893,8 +2893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &4104664017775424551
 MonoBehaviour:
@@ -4766,8 +4766,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &318229866788911525
 MonoBehaviour:
@@ -5138,8 +5138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &530470717189712434
 MonoBehaviour:
@@ -6217,8 +6217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 15
-  _soundToPlay: {fileID: 0}
+  _speed: 5
+  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
   _audioSource: []
 --- !u!114 &5962758934339319410
 MonoBehaviour:
