@@ -13,6 +13,8 @@ public class MouseClickHandler : MonoBehaviour
 
         if (hit.transform.CompareTag("Cube"))
         {
+            //Debug.Log("тыкнул в " + hit.transform.GetInstanceID());
+
             var cubeMover = hit.transform.GetComponent<CubeMover>();
             cubeMover.TryMove();
         }

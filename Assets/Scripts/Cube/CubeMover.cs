@@ -39,24 +39,28 @@ public class CubeMover : MonoBehaviour
     
     private IEnumerator MoveToObstacle(RaycastHit [] raycastHit)
     {
+        raycastHit = raycastHit.OrderBy(hit => Vector3.Distance(transform.position, hit.point)).ToArray();
+
         StartCoroutine(CheckObstacleAndMove(raycastHit));
         
         _initialPosition = transform.position;
+        
         if (!raycastHit.Any())
         {
             yield break;
         }
         
         var target = raycastHit.First().collider.transform;
-        var halfCubeSize = raycastHit.First().collider.bounds.size / 3f;
+        var halfCubeSize = raycastHit.First().collider.bounds.size / 2f;
 
-        while (Vector3.Distance(transform.position, target.position) > halfCubeSize.magnitude)
+        while (Vector3.Distance(transform.position, target.position) > 1)
         {
             transform.Translate(Vector3.up * (_speed * Time.deltaTime));
             yield return null;
         }
 
         StartCoroutine(ShakeObstacles(raycastHit));
+        
         StartCoroutine(MoveBack());
 
     }
@@ -70,18 +74,25 @@ public class CubeMover : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
+    
 
     private IEnumerator MoveBack()
     {
-        while (Vector3.Distance(transform.position, _initialPosition) > 0.1f)
+        Debug.Log("start position = " + _initialPosition);
+        
+        while (Vector3.SqrMagnitude(transform.position - _initialPosition) > 0.2f)
         {
             transform.Translate(-Vector3.up * (_speed * Time.deltaTime));
+            Debug.Log("current position = " + transform.position);
+
             yield return null;
         }
 
         transform.position = _initialPosition;
-    }
+        Debug.Log("end position = " + transform.position);
 
+    }
+    
 
     private bool IsWayFree()
     {
@@ -89,6 +100,7 @@ public class CubeMover : MonoBehaviour
         
         if (hits.Length > 0)
         {
+            //Debug.Log("впереди стоит " + hits.First().transform.GetInstanceID());
             return false;
         }
         return true;
