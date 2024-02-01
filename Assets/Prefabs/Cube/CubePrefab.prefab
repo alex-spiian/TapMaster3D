@@ -74,13 +74,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 94561147007163797}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
+  m_Script: {fileID: 11500000, guid: 82592fe7c96d14c4783ec062557052dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _direction: {x: 0, y: 0, z: 0}
-  _speed: 0
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
-  _audioSource: []
+  _direction: {x: 0, y: 1, z: 0}
+  _speed: 5
 --- !u!1001 &176812248263400190
 PrefabInstance:
   m_ObjectHideFlags: 0
