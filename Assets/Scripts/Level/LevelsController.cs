@@ -1,17 +1,17 @@
 using System;
+using DefaultNamespace.SoundsManager;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Level
 {
     public class LevelsController : MonoBehaviour
     {
-        [SerializeField] private GameObject[] _levelsPrefabs;
-        [SerializeField] private Transform _spawnPoint;
-        [SerializeField]private AudioClip _soundToPlay; // Звук для воспроизведения
+        public UnityEvent GameWasCompleted;
 
-        private AudioSource _audioSource;
-        private int _currentLevelIndex = 1;
+        [SerializeField] private GameObject[] _levelsPrefabs;
+        private int _currentLevelIndex;
         private GameObject _currentLevel;
 
         private void Awake()
@@ -19,28 +19,34 @@ namespace Level
             _currentLevel = Instantiate(_levelsPrefabs[_currentLevelIndex]);
         }
         
-        private void Start()
-        {
-            // Получаем компонент AudioSource на текущем объекте
-            _audioSource = GetComponent<AudioSource>();
-
-            // Устанавливаем звук для AudioSource
-            _audioSource.clip = _soundToPlay;
-        }
-
         public void LoadNextLevel()
         {
-            Debug.Log("You won!");
+            PlayerPrefs.SetInt("LastCompletedLevel", _currentLevelIndex);
+            
             _currentLevelIndex++;
+            if (_currentLevelIndex == _levelsPrefabs.Length)
+            {
+                GameWasCompleted?.Invoke();
+                return;
+            }
+            
             Destroy(_currentLevel);
             _currentLevel = Instantiate(_levelsPrefabs[_currentLevelIndex]);
-            _audioSource.Play();
         }
 
         public void Restart()
         {
             Destroy(_currentLevel);
             _currentLevel = Instantiate(_levelsPrefabs[_currentLevelIndex]);
+        }
+
+        public void StartFromBeginning()
+        {
+            _currentLevelIndex = 0;
+            PlayerPrefs.SetInt("LastCompletedLevel", _currentLevelIndex);
+            Destroy(_currentLevel);
+            _currentLevel = Instantiate(_levelsPrefabs[PlayerPrefs.GetInt("LastCompletedLevel")]);
+            
         }
     }
 }

@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64bb88ee870a43ec9ef26cb0f155a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _figuresSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
+  levelSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
 --- !u!114 &-6604686963117045757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,8 +733,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!1 &8193378722195715804
 GameObject:
   m_ObjectHideFlags: 0

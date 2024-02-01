@@ -242,7 +242,6 @@ GameObject:
   - component: {fileID: 4102391581101957753}
   - component: {fileID: 8681672525903429148}
   - component: {fileID: 2622280058114184384}
-  - component: {fileID: 6995168263648707212}
   - component: {fileID: 974475674026334070}
   - component: {fileID: 9078068404990295149}
   m_Layer: 0
@@ -312,21 +311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &6995168263648707212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51176043481625696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &974475674026334070
 AudioSource:
   m_ObjectHideFlags: 0
@@ -761,7 +745,6 @@ GameObject:
   - component: {fileID: 9092734377302192989}
   - component: {fileID: 1162839521701229931}
   - component: {fileID: 5609704790771572324}
-  - component: {fileID: 5819892099710454772}
   - component: {fileID: 5637506724997607079}
   - component: {fileID: 3585120204911166766}
   m_Layer: 0
@@ -831,21 +814,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &5819892099710454772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248574721385037798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &5637506724997607079
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1667,7 +1635,6 @@ GameObject:
   - component: {fileID: 3569425806233211870}
   - component: {fileID: 2398168775273368121}
   - component: {fileID: 2611423356596626334}
-  - component: {fileID: 6466295262670515257}
   - component: {fileID: 3442727707119243215}
   - component: {fileID: 757325773685107935}
   m_Layer: 0
@@ -1737,21 +1704,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &6466295262670515257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452617845449918085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &3442727707119243215
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1956,7 +1908,6 @@ GameObject:
   - component: {fileID: 8719741825756229090}
   - component: {fileID: 805794916175574553}
   - component: {fileID: 3488925491879819938}
-  - component: {fileID: 2465144616666811166}
   - component: {fileID: 1477413391143268705}
   - component: {fileID: 7083700876834136563}
   m_Layer: 0
@@ -2026,21 +1977,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &2465144616666811166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458802477123157059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &1477413391143268705
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3358,7 +3294,6 @@ GameObject:
   - component: {fileID: 1636996431062767999}
   - component: {fileID: 5062017719733946672}
   - component: {fileID: 2905172943631530425}
-  - component: {fileID: 3199454395286270043}
   - component: {fileID: 2861732687271735015}
   - component: {fileID: 4107833767362404445}
   m_Layer: 0
@@ -3428,21 +3363,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &3199454395286270043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 820117027921298941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &2861732687271735015
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4413,7 +4333,6 @@ GameObject:
   - component: {fileID: 8465072509270963172}
   - component: {fileID: 90785469176230768}
   - component: {fileID: 1428317438580542683}
-  - component: {fileID: 8912467769032452668}
   - component: {fileID: 95491896026479777}
   - component: {fileID: 7403249045646437101}
   m_Layer: 0
@@ -4483,21 +4402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &8912467769032452668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095027672148073798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &95491896026479777
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4868,7 +4772,6 @@ GameObject:
   - component: {fileID: 5119877142179746209}
   - component: {fileID: 7275495802033328177}
   - component: {fileID: 5155650555467259365}
-  - component: {fileID: 4094038500504914613}
   - component: {fileID: 2127727077420581019}
   - component: {fileID: 8426912415942189280}
   m_Layer: 0
@@ -4938,21 +4841,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &4094038500504914613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165065808782356172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &2127727077420581019
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5930,7 +5818,6 @@ GameObject:
   - component: {fileID: 7858402543603194061}
   - component: {fileID: 2722187444582273445}
   - component: {fileID: 1110554081813004876}
-  - component: {fileID: 4044981803710973150}
   - component: {fileID: 8499049604147436834}
   - component: {fileID: 6439251158970024506}
   m_Layer: 0
@@ -6000,21 +5887,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &4044981803710973150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397032323349966481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &8499049604147436834
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7000,7 +6872,6 @@ GameObject:
   - component: {fileID: 2131511910846983738}
   - component: {fileID: 8438266745660194527}
   - component: {fileID: 4254425706699398118}
-  - component: {fileID: 20962535795578066}
   - component: {fileID: 2925983158419926654}
   - component: {fileID: 8873285292940246158}
   m_Layer: 0
@@ -7070,21 +6941,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &20962535795578066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1796083959342252507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &2925983158419926654
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8283,7 +8139,6 @@ GameObject:
   - component: {fileID: 1675178611749043176}
   - component: {fileID: 2987127413633442683}
   - component: {fileID: 8511733524551873536}
-  - component: {fileID: 5821503222614374142}
   - component: {fileID: 7408145373603235624}
   - component: {fileID: 1310934484620257244}
   m_Layer: 0
@@ -8353,21 +8208,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &5821503222614374142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047902127330888313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &7408145373603235624
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9004,7 +8844,6 @@ GameObject:
   - component: {fileID: 8304792552279720523}
   - component: {fileID: 5401220502095392768}
   - component: {fileID: 5576854245877794964}
-  - component: {fileID: 8015650338118370421}
   - component: {fileID: 356838523551039059}
   - component: {fileID: 4696268588580053128}
   m_Layer: 0
@@ -9074,21 +8913,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &8015650338118370421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2154103287317465926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &356838523551039059
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10383,7 +10207,6 @@ GameObject:
   - component: {fileID: 8753342509643579669}
   - component: {fileID: 6363396902551798085}
   - component: {fileID: 4611142467633970913}
-  - component: {fileID: 993132876530207261}
   - component: {fileID: 856249530249443723}
   - component: {fileID: 8223097341491900268}
   m_Layer: 0
@@ -10453,21 +10276,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &993132876530207261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2517984457314861481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &856249530249443723
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11119,7 +10927,6 @@ GameObject:
   - component: {fileID: 4972064419815265513}
   - component: {fileID: 3075298651444790995}
   - component: {fileID: 1395177747387941151}
-  - component: {fileID: 1065650546394002872}
   - component: {fileID: 3052504545169462124}
   - component: {fileID: 1925585010158826557}
   m_Layer: 0
@@ -11189,21 +10996,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &1065650546394002872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2614002694202002361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &3052504545169462124
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12744,7 +12536,6 @@ GameObject:
   - component: {fileID: 2148694336689580214}
   - component: {fileID: 3145761027462798722}
   - component: {fileID: 6384885805650130257}
-  - component: {fileID: 3240383301285424884}
   - component: {fileID: 3483249792674397084}
   - component: {fileID: 3507640003487985622}
   m_Layer: 0
@@ -12814,21 +12605,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &3240383301285424884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3125946167446911436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &3483249792674397084
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14887,7 +14663,6 @@ GameObject:
   - component: {fileID: 9125738892063998661}
   - component: {fileID: 2709103001621702949}
   - component: {fileID: 4702832677437194107}
-  - component: {fileID: 5061705118762570617}
   - component: {fileID: 3668780841494759132}
   - component: {fileID: 322467054172166580}
   m_Layer: 0
@@ -14957,21 +14732,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &5061705118762570617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3706125205035946364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &3668780841494759132
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15708,7 +15468,6 @@ GameObject:
   - component: {fileID: 207958871066123455}
   - component: {fileID: 2641095870481300600}
   - component: {fileID: 9026849347400922194}
-  - component: {fileID: 4265975371429756099}
   - component: {fileID: 6580105104042045950}
   - component: {fileID: 5589908726826225227}
   m_Layer: 0
@@ -15778,21 +15537,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &4265975371429756099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3936413607823420678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &6580105104042045950
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18217,7 +17961,6 @@ GameObject:
   - component: {fileID: 910293192979724744}
   - component: {fileID: 7568277680278287611}
   - component: {fileID: 1227351137532809554}
-  - component: {fileID: 3372263146206049056}
   - component: {fileID: 7212440975920186050}
   - component: {fileID: 1977209466132045982}
   m_Layer: 0
@@ -18287,21 +18030,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &3372263146206049056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4637367585322514934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &7212440975920186050
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19834,7 +19562,6 @@ GameObject:
   - component: {fileID: 392381462615024813}
   - component: {fileID: 6588368460881066334}
   - component: {fileID: 7169536142373490148}
-  - component: {fileID: 5146153546237815954}
   - component: {fileID: 1107448242177514588}
   - component: {fileID: 8422896085019271732}
   m_Layer: 0
@@ -19904,21 +19631,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &5146153546237815954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4980951294561247626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &1107448242177514588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20568,7 +20280,6 @@ GameObject:
   - component: {fileID: 102391376994293537}
   - component: {fileID: 5446945089504185887}
   - component: {fileID: 5368401743992026728}
-  - component: {fileID: 4764903804641692321}
   - component: {fileID: 1597023141414020929}
   - component: {fileID: 4833329755325383508}
   m_Layer: 0
@@ -20638,21 +20349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &4764903804641692321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5145063505625417156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &1597023141414020929
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20930,7 +20626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64bb88ee870a43ec9ef26cb0f155a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _figuresSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
+  _levelSpawnerConfig: {fileID: 0}
 --- !u!114 &9036153936945400779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21122,7 +20818,6 @@ GameObject:
   - component: {fileID: 5978023052402563412}
   - component: {fileID: 3698282758399753608}
   - component: {fileID: 9080303786160000597}
-  - component: {fileID: 9077980107701233287}
   - component: {fileID: 6222741559420390721}
   - component: {fileID: 4113978710865525553}
   m_Layer: 0
@@ -21192,21 +20887,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &9077980107701233287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5177279953188586291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &6222741559420390721
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22733,7 +22413,6 @@ GameObject:
   - component: {fileID: 4113533888620477329}
   - component: {fileID: 8699702076138955534}
   - component: {fileID: 7131401771885828453}
-  - component: {fileID: 162421195474652745}
   - component: {fileID: 617792311903083094}
   - component: {fileID: 7336499912589967684}
   m_Layer: 0
@@ -22803,21 +22482,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &162421195474652745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5744951869263447231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &617792311903083094
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23652,7 +23316,6 @@ GameObject:
   - component: {fileID: 2215471610081947664}
   - component: {fileID: 1388480143149100692}
   - component: {fileID: 7515021114553294313}
-  - component: {fileID: 2624210459284179382}
   - component: {fileID: 4531676640521541990}
   - component: {fileID: 5608440692509853996}
   m_Layer: 0
@@ -23722,21 +23385,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &2624210459284179382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992319760324098351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &4531676640521541990
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23973,7 +23621,6 @@ GameObject:
   - component: {fileID: 5995162615115139573}
   - component: {fileID: 3793516993635391887}
   - component: {fileID: 511808736636336444}
-  - component: {fileID: 30512686483575270}
   - component: {fileID: 1779374226700166573}
   - component: {fileID: 1959383344490957785}
   m_Layer: 0
@@ -24043,21 +23690,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &30512686483575270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6022393185765545039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &1779374226700166573
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25288,7 +24920,6 @@ GameObject:
   - component: {fileID: 8423314479238965915}
   - component: {fileID: 5113318919280253529}
   - component: {fileID: 3134468344550548238}
-  - component: {fileID: 2289752303010869503}
   - component: {fileID: 4816327405032100666}
   - component: {fileID: 932993139019413497}
   m_Layer: 0
@@ -25358,21 +24989,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &2289752303010869503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6404540484177874990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &4816327405032100666
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25826,7 +25442,6 @@ GameObject:
   - component: {fileID: 3236416296948051395}
   - component: {fileID: 8967516885175782751}
   - component: {fileID: 7313315985285310692}
-  - component: {fileID: 7737209927662798903}
   - component: {fileID: 8190094788835117522}
   - component: {fileID: 2724732084713424364}
   m_Layer: 0
@@ -25896,21 +25511,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &7737209927662798903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6726571701902106290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &8190094788835117522
 AudioSource:
   m_ObjectHideFlags: 0
@@ -26696,7 +26296,6 @@ GameObject:
   - component: {fileID: 3285463809922632330}
   - component: {fileID: 6443762682662485418}
   - component: {fileID: 5171515259534768912}
-  - component: {fileID: 3328143576679927092}
   - component: {fileID: 8577451534134654427}
   - component: {fileID: 5260333012054248434}
   m_Layer: 0
@@ -26766,21 +26365,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &3328143576679927092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6859262191057453104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &8577451534134654427
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27136,7 +26720,6 @@ GameObject:
   - component: {fileID: 7330020184434931031}
   - component: {fileID: 3111250138596002062}
   - component: {fileID: 4435209310848571414}
-  - component: {fileID: 3963587932971060216}
   - component: {fileID: 4589726179359657616}
   - component: {fileID: 7256126696130501983}
   m_Layer: 0
@@ -27206,21 +26789,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &3963587932971060216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904653569873568389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &4589726179359657616
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27572,7 +27140,6 @@ GameObject:
   - component: {fileID: 9210631740154173722}
   - component: {fileID: 1639866363285923425}
   - component: {fileID: 202634287670815337}
-  - component: {fileID: 3002274706201203100}
   - component: {fileID: 2462211404143086945}
   - component: {fileID: 2976094730571459570}
   m_Layer: 0
@@ -27642,21 +27209,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &3002274706201203100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7007297527340514357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &2462211404143086945
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28804,7 +28356,6 @@ GameObject:
   - component: {fileID: 4977864592502532827}
   - component: {fileID: 5096724346383462549}
   - component: {fileID: 2746164962876189289}
-  - component: {fileID: 176539757000524706}
   - component: {fileID: 5583810204220055166}
   - component: {fileID: 2631302542541159468}
   m_Layer: 0
@@ -28874,21 +28425,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &176539757000524706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7325622097153875400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &5583810204220055166
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29323,7 +28859,6 @@ GameObject:
   - component: {fileID: 5752130090885396813}
   - component: {fileID: 6916016980090249950}
   - component: {fileID: 3636415979785577682}
-  - component: {fileID: 2290486183885321286}
   - component: {fileID: 8329162281911124772}
   - component: {fileID: 2098761084416501843}
   m_Layer: 0
@@ -29393,21 +28928,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &2290486183885321286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7470497367575398765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &8329162281911124772
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29778,7 +29298,6 @@ GameObject:
   - component: {fileID: 5809950570130745666}
   - component: {fileID: 1415648970684900645}
   - component: {fileID: 6446709696123634763}
-  - component: {fileID: 4969625047816834165}
   - component: {fileID: 572140188147925702}
   - component: {fileID: 4471143286541161249}
   m_Layer: 0
@@ -29848,21 +29367,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &4969625047816834165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7519051197025282539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &572140188147925702
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30067,7 +29571,6 @@ GameObject:
   - component: {fileID: 321768404268702073}
   - component: {fileID: 6702553393972277681}
   - component: {fileID: 5889478456855843826}
-  - component: {fileID: 1835653009262747399}
   - component: {fileID: 6311732695731092316}
   - component: {fileID: 39945078336163624}
   m_Layer: 0
@@ -30137,21 +29640,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &1835653009262747399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7527584093346734333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &6311732695731092316
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30522,7 +30010,6 @@ GameObject:
   - component: {fileID: 2803683282448448191}
   - component: {fileID: 7428646006632101771}
   - component: {fileID: 2053332055883908149}
-  - component: {fileID: 7433861736472404653}
   - component: {fileID: 7753092512168723212}
   - component: {fileID: 57264997631496135}
   m_Layer: 0
@@ -30592,21 +30079,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &7433861736472404653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7630373125275487387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &7753092512168723212
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30894,7 +30366,6 @@ GameObject:
   - component: {fileID: 265085123657079119}
   - component: {fileID: 3644282114189349497}
   - component: {fileID: 8823126739913147224}
-  - component: {fileID: 5856894587491879303}
   - component: {fileID: 3991963185132150464}
   - component: {fileID: 5025421311279049188}
   m_Layer: 0
@@ -30964,21 +30435,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &5856894587491879303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7689556110900527852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &3991963185132150464
 AudioSource:
   m_ObjectHideFlags: 0
@@ -32443,7 +31899,6 @@ GameObject:
   - component: {fileID: 8262684841228114139}
   - component: {fileID: 4919453488275417116}
   - component: {fileID: 2278067424877638926}
-  - component: {fileID: 9022241669039203872}
   - component: {fileID: 4860135962535413532}
   - component: {fileID: 7887265364153809007}
   m_Layer: 0
@@ -32513,21 +31968,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &9022241669039203872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8175305688712825432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &4860135962535413532
 AudioSource:
   m_ObjectHideFlags: 0
@@ -33692,7 +33132,6 @@ GameObject:
   - component: {fileID: 453640860890465506}
   - component: {fileID: 6830702090484551140}
   - component: {fileID: 1178292778790953650}
-  - component: {fileID: 5259044307202540030}
   - component: {fileID: 1588814492651628816}
   - component: {fileID: 626936566564497199}
   m_Layer: 0
@@ -33762,21 +33201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &5259044307202540030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8550401271688595611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &1588814492651628816
 AudioSource:
   m_ObjectHideFlags: 0
@@ -33981,7 +33405,6 @@ GameObject:
   - component: {fileID: 5455598766445561545}
   - component: {fileID: 7828135560751439156}
   - component: {fileID: 1086885755313607258}
-  - component: {fileID: 5258836761915731945}
   - component: {fileID: 8814306959452630032}
   - component: {fileID: 5912542410527914919}
   m_Layer: 0
@@ -34051,21 +33474,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &5258836761915731945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8568164043801067977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &8814306959452630032
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34270,7 +33678,6 @@ GameObject:
   - component: {fileID: 6121325319426734597}
   - component: {fileID: 7205116649594116993}
   - component: {fileID: 3760417976085772004}
-  - component: {fileID: 1765499041707310936}
   - component: {fileID: 3520620865892171477}
   - component: {fileID: 661501560255289744}
   m_Layer: 0
@@ -34340,21 +33747,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &1765499041707310936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8575955483117455741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &3520620865892171477
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34642,7 +34034,6 @@ GameObject:
   - component: {fileID: 5655582536464424791}
   - component: {fileID: 1388549353585361860}
   - component: {fileID: 2013094355780305059}
-  - component: {fileID: 3270128169182136615}
   - component: {fileID: 2456793797327399353}
   - component: {fileID: 6609707358738494113}
   m_Layer: 0
@@ -34712,21 +34103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &3270128169182136615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8756009212686462501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &2456793797327399353
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36380,7 +35756,6 @@ GameObject:
   - component: {fileID: 5759744384086003630}
   - component: {fileID: 7611018445618924218}
   - component: {fileID: 445453416096258316}
-  - component: {fileID: 7161753313100738172}
   - component: {fileID: 7258972971360033132}
   - component: {fileID: 9038160547702046479}
   m_Layer: 0
@@ -36450,21 +35825,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
---- !u!114 &7161753313100738172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9139063613726552711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85ce2a262d923444aa8620c6645a244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundToPlay: {fileID: 8300000, guid: f806a1c5526f66349bff33e93399e2a5, type: 3}
 --- !u!82 &7258972971360033132
 AudioSource:
   m_ObjectHideFlags: 0

@@ -435,8 +435,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &5254391356347733499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1343,8 +1341,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &9102697759705406042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,7 +1774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64bb88ee870a43ec9ef26cb0f155a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _figuresSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
+  levelSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
 --- !u!114 &-4858212639279104473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2283,8 +2279,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &3530989678988524247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3176,8 +3170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &2141475945818406371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3548,8 +3540,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &8925328518138334888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5965,8 +5955,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &480825588277246146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6599,8 +6587,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &1441858974947475249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7305,8 +7291,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &685545876509496618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9182,8 +9166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &5248656695982168564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9471,8 +9453,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &8884767803205839633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10386,8 +10366,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &3870672882032581643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11103,8 +11081,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &4940056048498747723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11392,8 +11368,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &1229026306013995783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12228,8 +12202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &3200417085289441053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12798,8 +12770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &6724854072035990086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13698,8 +13668,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &8318519581825521430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15792,8 +15760,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &4614301947067442936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19274,8 +19240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &2807693526431178202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20097,8 +20061,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &6620701089129778677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20620,8 +20582,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &6775176405664512625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21241,8 +21201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &3752799122280284279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21713,8 +21671,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &5802377257666259602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22402,8 +22358,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &7603820280636282215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22889,8 +22843,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &6203551491399862708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23448,8 +23400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &6441312700204177062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23820,8 +23770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &3831200729185317413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24620,8 +24568,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &1599315592615754722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25388,8 +25334,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &4309673265061000982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26124,8 +26068,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &7828243350006286859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26445,8 +26387,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &7188924349433226802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27696,8 +27636,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &4764502070387668016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28400,8 +28338,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!114 &7793839199830861049
 MonoBehaviour:
   m_ObjectHideFlags: 0
