@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace.SoundsManager;
 using DG.Tweening;
@@ -15,6 +16,8 @@ public class CubeMover : MonoBehaviour
     private SoundsManager _soundsManager;
     private Vector3 _initialPosition;
     private bool _isMoving;
+    private List<RaycastHit> _allHits = new();
+    private List<RaycastHit> _hitsShakeAnimation = new();
 
     private void Awake()
     {
@@ -31,9 +34,10 @@ public class CubeMover : MonoBehaviour
 
     public void TryMove()
     {
+        RaycastHit();
         if (!IsWayFree())
         {
-            StartCoroutine(MoveToObstacle(GetRaycastHit()));
+            StartCoroutine(MoveToObstacle());
             return;
         }
 
@@ -45,15 +49,15 @@ public class CubeMover : MonoBehaviour
     }
     
     
-    private IEnumerator MoveToObstacle(RaycastHit [] raycastHit)
+    private IEnumerator MoveToObstacle()
     {
        
-        raycastHit = raycastHit.OrderBy(hit => Vector3.Distance(transform.position, hit.point)).ToArray();
-        StartCoroutine(CheckObstacleAndMove(raycastHit));
+         _allHits.OrderBy(hit => Vector3.Distance(transform.position, hit.point)).ToArray();
+        StartCoroutine(CheckObstacleAndMove());
         _initialPosition = transform.position;
         
-        var target = raycastHit.First().collider.transform;
-        var halfCubeSize = raycastHit.First().collider.bounds.size / 2f;
+        var target = _allHits.First().collider.transform;
+        var halfCubeSize = _allHits.First().collider.bounds.size / 2f;
         
         while (Vector3.Distance(transform.position, target.position) > halfCubeSize.magnitude)
         {
@@ -61,24 +65,21 @@ public class CubeMover : MonoBehaviour
             yield return null;
         }
         
-        StartCoroutine(ShakeObstacles(raycastHit));
+        StartCoroutine(ShakeObstacles());
         StartCoroutine(MoveBack());
 
     }
 
-    private IEnumerator ShakeObstacles(RaycastHit[] raycastHit)
+    private IEnumerator ShakeObstacles()
     {
-        var obstacles = raycastHit;
-        
-        for (var i = 0; i < obstacles.Length; i++)
+        for (var i = 0; i < _hitsShakeAnimation.Count; i++)
         {
-            
-            obstacles[i].collider.transform.DOPunchScale(new Vector3(0.5f,0.5f,0.5f),0.2f);
+            _hitsShakeAnimation[i].collider.transform.DOPunchScale(new Vector3(0.5f,0.5f,0.5f),0.2f);
             _soundsManager.PlayCollision();
 
-            if (obstacles[i].collider.CompareTag("Cube"))
+            if (_hitsShakeAnimation[i].collider.CompareTag("Cube"))
             {
-                obstacles[i].collider.transform.DOScale(Vector3.one, 0.2f);
+                _hitsShakeAnimation[i].collider.transform.DOScale(Vector3.one, 0.2f);
             }
             yield return new WaitForSeconds(0.1f);
         }
@@ -103,11 +104,9 @@ public class CubeMover : MonoBehaviour
 
     private bool IsWayFree()
     {
-        var hits = GetRaycastHit();
-
-        if (hits.Length > 0)
+        if (_allHits.Count > 0)
         {
-            if (!hits.First().transform.CompareTag("Cube"))
+            if (!_allHits.First().transform.CompareTag("Cube"))
             {
                 return true;
             }
@@ -118,22 +117,50 @@ public class CubeMover : MonoBehaviour
     }
 
 
-    private RaycastHit [] GetRaycastHit()
+    private void RaycastHit()
     {
-        Ray ray = new Ray(transform.position, transform.up);
-        var hits = Physics.RaycastAll(ray, 10f);
+        if (_allHits.Count!=0)
+        {
+            _allHits.Clear();
+        }
 
-        return hits;
+        if (_hitsShakeAnimation.Count!=0)
+        {
+            _hitsShakeAnimation.Clear();
+        }
+        Ray ray = new Ray(transform.position, transform.up);
+        _allHits = Physics.RaycastAll(ray, 10f).ToList();
+        _allHits.Sort((hit1, hit2) => hit1.transform.position.y.CompareTo(hit2.transform.position.y));
+        for (var i = 0; i < _allHits.Count-1; i++)
+        {
+            var distanceBetweenCubes = Vector3.Distance(_allHits[i].transform.position,_allHits[i+1].transform.position);
+            if (distanceBetweenCubes<1.1f)
+            {
+                _hitsShakeAnimation.Add(_allHits[i]);
+            }
+
+            if (i==_allHits.Count-2)
+            {
+                _hitsShakeAnimation.Add(_allHits[i+1]);
+            }
+            else if (distanceBetweenCubes>1.1f)
+            {
+                _hitsShakeAnimation.Add(_allHits[i]); 
+                break;
+            }
+        }
+
+        
     }
     
-    private IEnumerator CheckObstacleAndMove(RaycastHit[] hits)
+    private IEnumerator CheckObstacleAndMove()
     {
-        var lastPosition = hits.First().transform.position;
+        var lastPosition = _allHits.First().transform.position;
         
         yield return new WaitForSeconds(0.1f);
 
         // попробовать сделать рекурсивную проверку так как если впереди летит 2+ куба то проблема остается
-        if (Vector3.Distance(lastPosition, hits.First().transform.position) < 0.01f || hits.Length > 1)
+        if (Vector3.Distance(lastPosition, _allHits.First().transform.position) < 0.01f || _allHits.Count > 1)
         {
             yield break;
         }
