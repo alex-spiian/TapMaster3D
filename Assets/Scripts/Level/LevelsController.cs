@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Level
 {
@@ -11,7 +9,7 @@ namespace Level
         [SerializeField]private AudioClip _soundToPlay; // Звук для воспроизведения
 
         private AudioSource _audioSource;
-        private int _currentLevelIndex = 1;
+        private int _currentLevelIndex;
         private GameObject _currentLevel;
 
         private void Awake()

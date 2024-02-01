@@ -18,12 +18,7 @@ public class CubeMover : MonoBehaviour
     
     private void Start()
     {
-        // Получаем компонент AudioSource на текущем объекте
         _audioSource = GetComponents<AudioSource>();
-
-        // Устанавливаем звук для AudioSource
-        if (_audioSource != null && _audioSource.Length > 1) ;
-        _audioSource[1].clip = _soundToPlay;
     }
     private void Update()
     {
@@ -81,7 +76,7 @@ public class CubeMover : MonoBehaviour
         for (var i = 0; i < obstacles.Length; i++)
         {
             if (obstacles[i].collider != null && obstacles[i].collider.transform != null)
-            obstacles[i].collider.transform.DOPunchScale(new Vector3(0.2f,0.2f,0.2f),0.2f);
+                obstacles[i].collider.transform.DOPunchScale(new Vector3(0.2f,0.2f,0.2f),0.2f);
             _audioSource[1].Play();
             yield return new WaitForSeconds(0.1f);
         }
