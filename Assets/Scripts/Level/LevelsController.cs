@@ -1,8 +1,5 @@
-using System;
-using DefaultNamespace.SoundsManager;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Level
 {
