@@ -16,7 +16,7 @@ namespace Level
 
         private void Awake()
         {
-            _currentLevel = Instantiate(_levelsPrefabs[_currentLevelIndex]);
+            _currentLevel = Instantiate(_levelsPrefabs[PlayerPrefs.GetInt("LastCompletedLevel") + 1]);
         }
         
         public void LoadNextLevel()
