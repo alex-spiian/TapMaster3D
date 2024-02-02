@@ -1291,7 +1291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6839031423091867593}
   - component: {fileID: 6593645690370361143}
-  - component: {fileID: -4858212639279104473}
+  - component: {fileID: 8056434575391930789}
   m_Layer: 0
   m_Name: Level4
   m_TagString: Untagged
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
---- !u!114 &-4858212639279104473
+--- !u!114 &8056434575391930789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

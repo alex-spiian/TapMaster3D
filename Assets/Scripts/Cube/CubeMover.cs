@@ -72,17 +72,36 @@ public class CubeMover : MonoBehaviour
 
     private IEnumerator ShakeObstacles()
     {
-        for (var i = 0; i < _hitsShakeAnimation.Count; i++)
+        if (transform.localRotation.eulerAngles.y ==0)
         {
-            _hitsShakeAnimation[i].collider.transform.DOPunchScale(new Vector3(0.5f,0.5f,0.5f),0.2f);
-            _soundsManager.PlayCollision();
-
-            if (_hitsShakeAnimation[i].collider.CompareTag("Cube"))
+            for (var i = 0; i < _hitsShakeAnimation.Count; i++)
             {
-                _hitsShakeAnimation[i].collider.transform.DOScale(Vector3.one, 0.2f);
+                _hitsShakeAnimation[i].collider.transform.DOPunchScale(new Vector3(0.5f,0.5f,0.5f),0.2f);
+                _soundsManager.PlayCollision();
+
+                if (_hitsShakeAnimation[i].collider.CompareTag("Cube"))
+                {
+                    _hitsShakeAnimation[i].collider.transform.DOScale(Vector3.one, 0.2f);
+                }
+                yield return new WaitForSeconds(0.1f);
             }
-            yield return new WaitForSeconds(0.1f);
         }
+
+        if (transform.localRotation.eulerAngles.y == 180)
+        {
+            for (var i = _hitsShakeAnimation.Count - 1; i >= 0; i--)
+            {
+                _hitsShakeAnimation[i].collider.transform.DOPunchScale(new Vector3(0.5f,0.5f,0.5f),0.2f);
+                _soundsManager.PlayCollision();
+
+                if (_hitsShakeAnimation[i].collider.CompareTag("Cube"))
+                {
+                    _hitsShakeAnimation[i].collider.transform.DOScale(Vector3.one, 0.2f);
+                }
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        
     }
 
     private IEnumerator MoveBack()
