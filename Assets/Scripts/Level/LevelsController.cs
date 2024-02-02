@@ -13,12 +13,13 @@ namespace Level
 
         private void Awake()
         {
+            LoadCurrentLevel();
             _currentLevel = Instantiate(_levelsPrefabs[_currentLevelIndex]);
         }
         
         public void LoadNextLevel()
         {
-            PlayerPrefs.SetInt("LastCompletedLevel", _currentLevelIndex);
+            PlayerPrefs.SetInt("CurrentLevel", _currentLevelIndex);
             
             _currentLevelIndex++;
             if (_currentLevelIndex == _levelsPrefabs.Length)
@@ -40,10 +41,29 @@ namespace Level
         public void StartFromBeginning()
         {
             _currentLevelIndex = 0;
-            PlayerPrefs.SetInt("LastCompletedLevel", _currentLevelIndex);
+            PlayerPrefs.SetInt("CurrentLevel", _currentLevelIndex);
             Destroy(_currentLevel);
-            _currentLevel = Instantiate(_levelsPrefabs[PlayerPrefs.GetInt("LastCompletedLevel")]);
+            _currentLevel = Instantiate(_levelsPrefabs[PlayerPrefs.GetInt("CurrentLevel")]);
             
+        }
+        
+        private void LoadCurrentLevel()
+        {
+            if (PlayerPrefs.GetInt("RunningGame", 0) == 0)
+            {
+                _currentLevelIndex = 0;
+                PlayerPrefs.SetInt("RunningGame", 1);
+                PlayerPrefs.Save();
+            }
+            else
+            {
+                _currentLevelIndex = PlayerPrefs.GetInt("CurrentLevel");
+            }
+        }
+
+        private void OnDestroy()
+        {
+            PlayerPrefs.SetInt("CurrentLevel", _currentLevelIndex);
         }
     }
 }

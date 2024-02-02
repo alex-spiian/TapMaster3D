@@ -79,8 +79,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
   _speed: 5
-  _soundToPlay: {fileID: 8300000, guid: 9ddac95f265c3644abc2dc80813b2b6c, type: 3}
-  _audioSource: []
 --- !u!1001 &176812248263400190
 PrefabInstance:
   m_ObjectHideFlags: 0
