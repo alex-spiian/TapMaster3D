@@ -18,8 +18,7 @@ public class Container : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = FindObjectOfType<Container>();
-                
+                _instance = FindFirstObjectByType<Container>();
                 if (_instance == null)
                 {
                     var singleton = new GameObject("Container");

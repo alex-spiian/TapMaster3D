@@ -137,7 +137,6 @@ public class CubeMover : MonoBehaviour
         {
             yield break;
         }
-        
         CubeWasGone?.Invoke();
         _soundsManager.PlayClick();
     }
