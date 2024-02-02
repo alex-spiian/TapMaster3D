@@ -51,6 +51,8 @@ public class LevelSpawner : MonoBehaviour
             var minDelay = _levelSpawnerConfig.MinDelayBetweenDrops;
             var maxDelay = _levelSpawnerConfig.MaxDelayBetweenDrops;
             yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
+            
+            // TODO: кидать ивент что уровень заспавнился и можно крутить фигуру 
         }
     }
 
