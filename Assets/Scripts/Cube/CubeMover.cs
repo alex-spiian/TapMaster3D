@@ -25,7 +25,15 @@ public class CubeMover : MonoBehaviour
     {
         if (_isMoving )
         {
-            transform.Translate(_direction * (_speed * Time.deltaTime));
+            //transform.Translate(_direction * (_speed * Time.deltaTime));
+            
+            var globalDirection = transform.TransformDirection(_direction);
+            var tween = transform.DOMove(globalDirection * 100, 20);
+            if (tween.IsComplete())
+            {
+                Destroy(gameObject);
+            }
+
         }
     }
 
@@ -33,12 +41,12 @@ public class CubeMover : MonoBehaviour
     {
         if (!IsWayFree())
         {
-            StartCoroutine(MoveToObstacle(GetRaycastHit()));
+            MoveToObstacle(GetRaycastHit());        
             return;
         }
 
         _isMoving = true;
-        _initialPosition = transform.position;
+        _initialPosition = transform.localPosition;
         
         CubeWasGone?.Invoke();
         _soundsManager.PlayClick();
@@ -47,24 +55,22 @@ public class CubeMover : MonoBehaviour
     }
     
     
-    private IEnumerator MoveToObstacle(RaycastHit [] raycastHit)
+    private void MoveToObstacle(RaycastHit [] raycastHit)
     {
-        StartCoroutine(CheckObstacleAndMove(raycastHit));
-        _initialPosition = transform.position;
+        //StartCoroutine(CheckObstacleAndMove(raycastHit));
+        _initialPosition = transform.localPosition;
         
-        var target = raycastHit.First().collider.transform;
-        var halfCubeSize = raycastHit.First().collider.bounds.size / 2f;
+        var target = raycastHit.First().transform;
+        _initialPosition = transform.localPosition;
         
-        while (Vector3.Distance(transform.position, target.position) > halfCubeSize.magnitude)
-        {
-            transform.Translate(Vector3.up * (_speed * Time.deltaTime));
-            yield return null;
-        }
+        var sequence = DOTween.Sequence();
+        sequence.Append(transform.DOPunchPosition((target.localPosition - _initialPosition) / 2f, 0.2f));
+        //sequence.Append(transform.DOLocalMove(_initialPosition, 0.2f));
+        sequence.Play();
         
         StartCoroutine(ShakeObstacles(raycastHit));
-        StartCoroutine(MoveBack());
     }
-
+    
     private IEnumerator ShakeObstacles(RaycastHit[] raycastHit)
     {
         var obstacles = raycastHit;
@@ -86,15 +92,15 @@ public class CubeMover : MonoBehaviour
     {
         Quaternion initialRotation = transform.parent.rotation;
         
-        while (Vector3.Distance(transform.position, _initialPosition) > 0.2f)
+        while (Vector3.Distance(transform.localPosition, _initialPosition) > 0.2f)
         {
-            transform.parent.rotation = initialRotation;
+            //transform.parent.rotation = initialRotation;
             transform.Translate(-Vector3.up * (_speed * Time.deltaTime));
             yield return null;
         }
 
-        transform.position = _initialPosition;
-        transform.parent.rotation = initialRotation;
+        transform.localPosition = _initialPosition;
+        //transform.parent.rotation = initialRotation;
     }
 
 
@@ -117,21 +123,24 @@ public class CubeMover : MonoBehaviour
 
     private RaycastHit [] GetRaycastHit()
     {
+        
         Ray ray = new Ray(transform.position, transform.up);
         var hits = Physics.RaycastAll(ray, 10f);
-        hits = hits.OrderBy(hit => Vector3.Distance(transform.position, hit.point)).ToArray();
+        
+        
+        hits = hits.OrderBy(hit => Vector3.Distance(transform.localPosition, hit.point)).ToArray();
 
         return hits;
     }
     
     private IEnumerator CheckObstacleAndMove(RaycastHit[] hits)
     {
-        var lastPosition = hits.First().transform.position;
+        var lastPosition = hits.First().transform.localPosition;
         
         yield return new WaitForSeconds(0.1f);
 
         // попробовать сделать рекурсивную проверку так как если впереди летит 2+ куба то проблема остается
-        if (Vector3.Distance(lastPosition, hits.First().transform.position) < 0.01f || hits.Length > 1)
+        if (Vector3.Distance(lastPosition, hits.First().transform.localPosition) < 0.01f || hits.Length > 1)
         {
             yield break;
         }

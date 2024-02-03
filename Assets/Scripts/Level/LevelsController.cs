@@ -14,14 +14,11 @@ namespace Level
         private int _currentLevelIndex;
         private GameObject _currentLevel;
 
-        private ScreensController.ScreensController _screensController;
 
         private void Awake()
         {
             LoadCurrentLevel();
             _currentLevel = Instantiate(_levelsPrefabs[_currentLevelIndex]);
-
-            _screensController = Container.Instance.ScreensController;
         }
         
         public void LoadNextLevel()
@@ -52,14 +49,6 @@ namespace Level
             Destroy(_currentLevel);
             _currentLevel = Instantiate(_levelsPrefabs[PlayerPrefs.GetInt("CurrentLevel")]);
             
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                _screensController.ShowVictoryScreen();
-            }
         }
 
         private void LoadCurrentLevel()
