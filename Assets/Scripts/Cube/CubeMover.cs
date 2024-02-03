@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Linq;
 using DefaultNamespace.SoundsManager;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CubeMover : MonoBehaviour
@@ -65,7 +62,6 @@ public class CubeMover : MonoBehaviour
 
         return true;
     }
-
 
     private void GetRaycastHit()
     {
