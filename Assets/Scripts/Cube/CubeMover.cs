@@ -12,11 +12,9 @@ public class CubeMover : MonoBehaviour
     public event Action CubeWasGone;
 
     [SerializeField] private Vector3 _direction;
-    [SerializeField] private float _speed;
 
     private SoundsManager _soundsManager;
     private Vector3 _initialPosition;
-    private bool _isMoving;
     private RaycastHit _hit;
     private List<RaycastHit> _hitsShakeAnimation = new();
     private int _countRaycast;
@@ -31,15 +29,13 @@ public class CubeMover : MonoBehaviour
         if (IsWayFree())
         {
             var globalDirection = transform.TransformDirection(_direction);
-            transform.DOMove(globalDirection * 100, 8);
-
+            transform.DOMove(globalDirection * 100, 10);
         }
         else
         {
+            CubeRaycastOnClickForShakeAnimation();
             MoveToObstacle();
         }
-
-        _isMoving = true;
         _initialPosition = transform.position;
     }
 
@@ -60,18 +56,17 @@ public class CubeMover : MonoBehaviour
     {
         for (var i = 0; i < _hitsShakeAnimation.Count; i++)
         {
+            _soundsManager.PlayCollision();
             _hitsShakeAnimation[i].collider.transform.DOPunchScale(new Vector3(0.5f,0.5f,0.5f),0.2f);
             _hitsShakeAnimation[i].collider.transform.DOScale(Vector3.one, 0.2f);
             yield return new WaitForSeconds(0.1f);
         }
-
         _countRaycast = 0;
     }
 
     private bool IsWayFree()
     {
         CubeRaycastOnClick();
-        CubeRaycastOnClickForShakeAnimation();
         if (_hit.collider != null)
         {
             if (_hit.transform.CompareTag("Cube"))
@@ -79,18 +74,15 @@ public class CubeMover : MonoBehaviour
                 return false;
             }
         }
-
         return true;
     }
-
-
+    
     private void CubeRaycastOnClick()
     {
         Ray ray = new Ray(transform.position, transform.up);
         Physics.Raycast(ray, out _hit, 10f);
     }
-
-   
+    
     private void CubeRaycastOnClickForShakeAnimation()
     {
         if (_hitsShakeAnimation.Count!=0)
@@ -99,26 +91,23 @@ public class CubeMover : MonoBehaviour
         }
         
         Ray ray = new Ray(transform.position, transform.up);
-        
-        RecursiveObstacleRaycast(ray);
+        LookForNeighbours(ray);
     }
 
-    private void RecursiveObstacleRaycast(Ray ray)
+    private void LookForNeighbours(Ray ray)
     {
         var maxDistance = 10;
         if (_countRaycast>0)
         {
             maxDistance = 1;
         }
-        if (Physics.Raycast(ray, out var  hit, maxDistance))
+        
+        if (Physics.Raycast(ray, out var  hit, maxDistance) && hit.collider!=null)
         {
             _hitsShakeAnimation.Add(hit);
-            if (hit.collider!=null)
-            {
-                Ray obstacleRay = new Ray(hit.transform.position, transform.up);
-                _countRaycast++;
-                RecursiveObstacleRaycast(obstacleRay);
-            }
+            Ray obstacleRay = new Ray(hit.transform.position, transform.up);
+            _countRaycast++;
+            LookForNeighbours(obstacleRay);
         }
     }
 }
