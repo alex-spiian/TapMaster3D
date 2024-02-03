@@ -11,6 +11,8 @@ public class Container : MonoBehaviour
     public LevelsController LevelsController { get; private set; }
     [field:SerializeField]
     public ScreensController.ScreensController ScreensController { get; private set; }
+    [field:SerializeField]
+    public Rotator Rotator { get; private set; }
     
     private static Container _instance;
     public static Container Instance

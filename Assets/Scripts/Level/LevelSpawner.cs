@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 
 public class LevelSpawner : MonoBehaviour
 {
+    public event Action LevelWasSpawned;
     [SerializeField]
     private LevelSpawnerConfig _levelSpawnerConfig;
     
@@ -26,7 +27,6 @@ public class LevelSpawner : MonoBehaviour
         _soundsManager = Container.Instance.SoundsManager;
 
         _allCubes = GetComponentsInChildren<CubeMover>();
-        transform.position = _levelSpawnerConfig.SpawnPoint;
         
         SetStartPositionForChildren();
         StartCoroutine(MoveCubesInRow());

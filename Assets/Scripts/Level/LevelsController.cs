@@ -11,6 +11,7 @@ namespace Level
         public UnityEvent GameWasCompleted;
 
         [SerializeField] private GameObject[] _levelsPrefabs;
+        [SerializeField] private Rotator _rotator;
         private int _currentLevelIndex;
         private GameObject _currentLevel;
 
@@ -19,6 +20,7 @@ namespace Level
         {
             LoadCurrentLevel();
             _currentLevel = Instantiate(_levelsPrefabs[_currentLevelIndex]);
+            
         }
         
         public void LoadNextLevel()
