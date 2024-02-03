@@ -35,7 +35,6 @@ namespace Level
             }
             
             GameWasCompleted?.Invoke();
-
         }
 
         public void Restart()
@@ -50,7 +49,6 @@ namespace Level
             PlayerPrefs.SetInt("CurrentLevel", CurrentLevelIndex);
             
             levelsSpawner.SpawnLevel(CurrentLevelIndex);
-
         }
         
         public void LoadCurrentLevelIndex()
@@ -65,7 +63,6 @@ namespace Level
             {
                 CurrentLevelIndex = PlayerPrefs.GetInt("CurrentLevel");
             }
-
         }
 
         private void OnDestroy()
