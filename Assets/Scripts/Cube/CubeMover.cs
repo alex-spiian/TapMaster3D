@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cube;
 using DefaultNamespace.SoundsManager;
 using DG.Tweening;
 using Unity.VisualScripting;
@@ -10,7 +11,6 @@ using UnityEngine;
 public class CubeMover : MonoBehaviour
 {
     public event Action CubeWasGone;
-
     [SerializeField] private Vector3 _direction;
 
     private SoundsManager _soundsManager;
@@ -18,10 +18,13 @@ public class CubeMover : MonoBehaviour
     private RaycastHit _hit;
     private List<RaycastHit> _hitsShakeAnimation = new();
     private int _countRaycast;
-
+    private CubesController _cubesController;
     private void Awake()
     {
         _soundsManager = Container.Instance.SoundsManager;
+        _cubesController = Container.Instance.CubesController;
+
+        CubeWasGone += _cubesController.MarkCubeAsGone;
     }
 
     public void TryMove()
@@ -30,6 +33,8 @@ public class CubeMover : MonoBehaviour
         {
             var globalDirection = transform.TransformDirection(_direction);
             transform.DOMove(globalDirection * 100, 10);
+            CubeWasGone?.Invoke();
+            
         }
         else
         {
@@ -109,5 +114,10 @@ public class CubeMover : MonoBehaviour
             _countRaycast++;
             LookForNeighbours(obstacleRay);
         }
+    }
+
+    private void OnDestroy()
+    {
+        CubeWasGone -= _cubesController.MarkCubeAsGone;
     }
 }

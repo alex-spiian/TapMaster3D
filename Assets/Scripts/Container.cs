@@ -1,3 +1,4 @@
+using Cube;
 using DefaultNamespace.SoundsManager;
 using Level;
 using ScreensController;
@@ -8,9 +9,11 @@ public class Container : MonoBehaviour
     [field:SerializeField]
     public SoundsManager SoundsManager { get; private set; }
     [field:SerializeField]
-    public LevelsController LevelsController { get; private set; }
+    public LevelsSwitcher LevelsSwitcher { get; private set; }
     [field:SerializeField]
     public ScreensController.ScreensController ScreensController { get; private set; }
+    [field:SerializeField] public LevelsController levelsController { get; private set; }
+    [field:SerializeField] public CubesController CubesController { get; private set; }
     
     private static Container _instance;
     public static Container Instance

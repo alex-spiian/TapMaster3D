@@ -431,7 +431,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &179661263117927706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,7 +1128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &625594917291600071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1288,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6839031423091867593}
-  - component: {fileID: 6593645690370361143}
   - component: {fileID: -4858212639279104473}
   m_Layer: 0
   m_Name: Level4
@@ -1346,19 +1343,6 @@ Transform:
   - {fileID: 8608531262016792076}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6593645690370361143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905850350892774237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64bb88ee870a43ec9ef26cb0f155a3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
 --- !u!114 &-4858212639279104473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,7 +1843,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &1104839714989940010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,7 +2525,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &1346848244127474476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,7 +2686,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &1356638232567994206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4911,7 +4892,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &2235301375743674341
 GameObject:
   m_ObjectHideFlags: 0
@@ -5335,7 +5315,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &2403272823710646465
 GameObject:
   m_ObjectHideFlags: 0
@@ -5831,7 +5810,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &2700776790370367919
 GameObject:
   m_ObjectHideFlags: 0
@@ -7498,7 +7476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &3368275279209225093
 GameObject:
   m_ObjectHideFlags: 0
@@ -7577,7 +7554,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &3395992072822185876
 GameObject:
   m_ObjectHideFlags: 0
@@ -8282,7 +8258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &3635532314438724008
 GameObject:
   m_ObjectHideFlags: 0
@@ -8789,7 +8764,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &3791971303252997992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8868,7 +8842,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &3876345821086462746
 GameObject:
   m_ObjectHideFlags: 0
@@ -9494,7 +9467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &4060903762561830739
 GameObject:
   m_ObjectHideFlags: 0
@@ -9854,7 +9826,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &4242852772235059810
 GameObject:
   m_ObjectHideFlags: 0
@@ -10544,7 +10515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &4634382699853404070
 GameObject:
   m_ObjectHideFlags: 0
@@ -12428,7 +12398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &5318363176045408550
 GameObject:
   m_ObjectHideFlags: 0
@@ -15700,7 +15669,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &6686107593408168875
 GameObject:
   m_ObjectHideFlags: 0
@@ -16313,7 +16281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &6900012082379636563
 GameObject:
   m_ObjectHideFlags: 0
@@ -16626,7 +16593,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &7027190978921073820
 GameObject:
   m_ObjectHideFlags: 0
@@ -17037,7 +17003,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &7222245970754718657
 GameObject:
   m_ObjectHideFlags: 0
@@ -17299,7 +17264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &7382552194857529560
 GameObject:
   m_ObjectHideFlags: 0
@@ -17778,7 +17742,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &7558344995091548926
 GameObject:
   m_ObjectHideFlags: 0
@@ -18055,7 +18018,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &7620528839232806176
 GameObject:
   m_ObjectHideFlags: 0
@@ -18404,7 +18366,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &7715282629124354070
 GameObject:
   m_ObjectHideFlags: 0
@@ -18566,7 +18527,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &7748106153389465956
 GameObject:
   m_ObjectHideFlags: 0
@@ -19156,7 +19116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &8049165570946872140
 GameObject:
   m_ObjectHideFlags: 0
@@ -19714,7 +19673,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &8213320916254261648
 GameObject:
   m_ObjectHideFlags: 0
@@ -20240,7 +20198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &8378969350531799063
 GameObject:
   m_ObjectHideFlags: 0
@@ -20351,7 +20308,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &8401029412316249608
 GameObject:
   m_ObjectHideFlags: 0
@@ -21392,7 +21348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &8747148928723541410
 GameObject:
   m_ObjectHideFlags: 0
@@ -21886,7 +21841,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &8824928221489527006
 GameObject:
   m_ObjectHideFlags: 0
