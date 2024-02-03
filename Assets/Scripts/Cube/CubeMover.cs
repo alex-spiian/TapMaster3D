@@ -42,13 +42,13 @@ public class CubeMover : MonoBehaviour
         
         CubeWasGone?.Invoke();
         _soundsManager.PlayClick();
+        
+        Debug.Log("Куб улетел в TryMove");
     }
     
     
     private IEnumerator MoveToObstacle(RaycastHit [] raycastHit)
     {
-       
-        raycastHit = raycastHit.OrderBy(hit => Vector3.Distance(transform.position, hit.point)).ToArray();
         StartCoroutine(CheckObstacleAndMove(raycastHit));
         _initialPosition = transform.position;
         
@@ -63,7 +63,6 @@ public class CubeMover : MonoBehaviour
         
         StartCoroutine(ShakeObstacles(raycastHit));
         StartCoroutine(MoveBack());
-
     }
 
     private IEnumerator ShakeObstacles(RaycastHit[] raycastHit)
@@ -72,13 +71,12 @@ public class CubeMover : MonoBehaviour
         
         for (var i = 0; i < obstacles.Length; i++)
         {
-            
             obstacles[i].collider.transform.DOPunchScale(new Vector3(0.5f,0.5f,0.5f),0.2f);
             _soundsManager.PlayCollision();
 
             if (obstacles[i].collider.CompareTag("Cube"))
             {
-                obstacles[i].collider.transform.DOScale(Vector3.one, 0.2f);
+                obstacles[i].transform.DOScale(Vector3.one, 0.2f);
             }
             yield return new WaitForSeconds(0.1f);
         }
@@ -91,7 +89,6 @@ public class CubeMover : MonoBehaviour
         while (Vector3.Distance(transform.position, _initialPosition) > 0.2f)
         {
             transform.parent.rotation = initialRotation;
-
             transform.Translate(-Vector3.up * (_speed * Time.deltaTime));
             yield return null;
         }
@@ -122,6 +119,7 @@ public class CubeMover : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.up);
         var hits = Physics.RaycastAll(ray, 10f);
+        hits = hits.OrderBy(hit => Vector3.Distance(transform.position, hit.point)).ToArray();
 
         return hits;
     }
@@ -140,6 +138,8 @@ public class CubeMover : MonoBehaviour
         
         CubeWasGone?.Invoke();
         _soundsManager.PlayClick();
+        Debug.Log("Куб улетел в CheckObstacleAndMove");
+
     }
 
 
