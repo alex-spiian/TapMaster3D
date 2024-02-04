@@ -37,9 +37,6 @@ public class CubeMover : MonoBehaviour
             var globalDirection = transform.TransformDirection(_direction);
             transform.DOMove(globalDirection * 100, 20);
             CubeWasGone?.Invoke();
-            
-            
-
         }
         else
         {
