@@ -34,14 +34,21 @@ public class CubeMover : MonoBehaviour
     {
         if (IsWayFree())
         {
-            var globalDirection = transform.TransformDirection(_direction);
-            transform.DOMove(globalDirection * 100, 40);
             _isMoving = true;
-            CubeWasGone?.Invoke();
+            transform.SetParent(null);
             
+            var moveDirection = transform.up;
+            moveDirection.Normalize();
+            
+            var moveDuration = 5f;
+            var distance = 5 * moveDuration;
+            var endPosition = transform.position + moveDirection * distance;
+
+            transform.DOMove(endPosition, moveDuration).OnComplete(() => Destroy(gameObject));
+            CubeWasGone?.Invoke();
+
             foreach (Transform child in transform)
-            {
-                // Проверяем тег
+            { 
                 if (child.CompareTag("Effect"))
                 {
                     child.gameObject.SetActive(true);
@@ -70,6 +77,16 @@ public class CubeMover : MonoBehaviour
         StartCoroutine( ShakeAnimation());
         sequence.Append(transform.DOLocalMove(_initialPosition, 0.5f));
         sequence.Play();
+
+       // var initialPosition = transform.localPosition;
+       // var endPosition =
+       //     new Vector3(_hit.transform.localPosition.x, _hit.transform.localPosition.y, _hit.transform.localPosition.z)
+       //     - transform.up;
+//
+//
+       // transform.DOLocalMove(endPosition, 0.2f).OnComplete(() => transform.DOLocalMove(initialPosition, 0.2f));
+
+
     }
 
     private IEnumerator ShakeAnimation()

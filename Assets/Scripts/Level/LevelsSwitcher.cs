@@ -1,5 +1,6 @@
 using System;
 using Cube;
+using DefaultNamespace;
 using DefaultNamespace.SoundsManager;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,13 +21,13 @@ namespace Level
         private void Start()
         {
             LoadCurrentLevelIndex();
-            levelsSpawner.SpawnLevel(PlayerPrefs.GetInt("CurrentLevel"));
+            levelsSpawner.SpawnLevel(PlayerPrefs.GetInt(GlobalConstants.CurrentLevel));
         }
 
         public void LoadNextLevel()
         {
             CurrentLevelIndex++;
-            PlayerPrefs.SetInt("CurrentLevel", CurrentLevelIndex);
+            PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, CurrentLevelIndex);
             
             if (CurrentLevelIndex < levelsSpawner.LevelsCount)
             {
@@ -46,12 +47,12 @@ namespace Level
         public void StartFromBeginning()
         {
             CurrentLevelIndex = 0;
-            PlayerPrefs.SetInt("CurrentLevel", CurrentLevelIndex);
+            PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, CurrentLevelIndex);
             
             levelsSpawner.SpawnLevel(CurrentLevelIndex);
         }
-        
-        public void LoadCurrentLevelIndex()
+
+        private void LoadCurrentLevelIndex()
         {
             if (PlayerPrefs.GetInt("RunningGame", 0) == 0)
             {
@@ -61,13 +62,13 @@ namespace Level
             }
             else
             {
-                CurrentLevelIndex = PlayerPrefs.GetInt("CurrentLevel");
+                CurrentLevelIndex = PlayerPrefs.GetInt(GlobalConstants.CurrentLevel);
             }
         }
 
         private void OnDestroy()
         {
-            PlayerPrefs.SetInt("CurrentLevel", CurrentLevelIndex);
+            PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, CurrentLevelIndex);
         }
     }
 }

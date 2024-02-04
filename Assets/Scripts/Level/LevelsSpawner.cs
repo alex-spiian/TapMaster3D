@@ -44,7 +44,7 @@ public class LevelsSpawner : MonoBehaviour
     {
         for (int i = 0; i < _allCubesOfCurrentLevel.Length; i++)
         {
-            _allCubesOfCurrentLevel[i].transform.DOMove(_cubesTargetPositions[i], 1);
+            _allCubesOfCurrentLevel[i].transform.DOLocalMove(_cubesTargetPositions[i], 1);
             var minDelay = _levelSpawnerConfig.MinDelayBetweenDrops;
             var maxDelay = _levelSpawnerConfig.MaxDelayBetweenDrops;
             yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
@@ -57,7 +57,7 @@ public class LevelsSpawner : MonoBehaviour
         for (int i = 0; i < _allCubesOfCurrentLevel.Length; i++)
         {
             
-            var startPosition = _allCubesOfCurrentLevel[i].transform.position;
+            var startPosition = _allCubesOfCurrentLevel[i].transform.localPosition;
             if (i%2==0) 
             {
                 startPosition.y += _levelSpawnerConfig.YValueToBeOutOfCamera;
@@ -74,7 +74,7 @@ public class LevelsSpawner : MonoBehaviour
             {
                 startPosition.y -= _levelSpawnerConfig.YValueToBeOutOfCamera;
             }
-            _cubesTargetPositions.Add(_allCubesOfCurrentLevel[i].transform.position);
+            _cubesTargetPositions.Add(_allCubesOfCurrentLevel[i].transform.localPosition);
             _allCubesOfCurrentLevel[i].transform.position = startPosition;
         }
     }
