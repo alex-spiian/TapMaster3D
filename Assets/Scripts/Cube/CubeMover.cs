@@ -12,6 +12,7 @@ public class CubeMover : MonoBehaviour
 {
     public event Action CubeWasGone;
     [SerializeField] private Vector3 _direction;
+    [SerializeField]
 
     private SoundsManager _soundsManager;
     private Vector3 _initialPosition;
@@ -34,6 +35,16 @@ public class CubeMover : MonoBehaviour
             var globalDirection = transform.TransformDirection(_direction);
             transform.DOMove(globalDirection * 100, 10);
             CubeWasGone?.Invoke();
+            
+            // Ищем эффект и включаем
+            foreach (Transform child in transform)
+            {
+                // Проверяем тег
+                if (child.CompareTag("Effect"))
+                {
+                    child.gameObject.SetActive(true);
+                }
+            }
             
         }
         else
