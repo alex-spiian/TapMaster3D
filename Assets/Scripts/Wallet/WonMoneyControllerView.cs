@@ -13,26 +13,28 @@ public class WonMoneyControllerView : MonoBehaviour
 
     private int _wonMoney;
     private float _startAmountMoney;
+    private float _startAmountCubes;
+    private float _currentTime;
 
     public void ShowCountingCubes()
     {
         _startAmountMoney = 0;
+        _startAmountCubes = 0f;
         _moneyAmount.text = _startAmountMoney.ToString("0");
         StartCoroutine(CountingCubes());
     }
 
     private IEnumerator CountingCubes()
     {
-        var currentTime = 0f;
-        var startAmountCubes = 0f;
+        _currentTime = 0f;
 
-        while (currentTime < _timeUpdateResources)
+        while (_currentTime < _timeUpdateResources)
         {
-            startAmountCubes = Mathf.Lerp(startAmountCubes, _cubesController.CountCubsInTotal,
-                currentTime / _timeUpdateResources);
+            _startAmountCubes = Mathf.Lerp(_startAmountCubes, _cubesController.CountCubsInTotal,
+                _currentTime / _timeUpdateResources);
 
-            currentTime += Time.deltaTime;
-            _cubesAmount.text = startAmountCubes.ToString("0");
+            _currentTime += Time.deltaTime;
+            _cubesAmount.text = _startAmountCubes.ToString("0");
             
             yield return null;
         }
@@ -40,14 +42,14 @@ public class WonMoneyControllerView : MonoBehaviour
     }
     private IEnumerator CountingMoney()
     {
-        var currentTime = 0f;
+       _currentTime = 0f;
 
-        while (currentTime < _timeUpdateResources)
+        while (_currentTime < _timeUpdateResources)
         {
             _startAmountMoney = Mathf.Lerp(_startAmountMoney, _wonMoney,
-                currentTime / _timeUpdateResources);
+                _currentTime / _timeUpdateResources);
 
-            currentTime += Time.deltaTime;
+            _currentTime += Time.deltaTime;
             _moneyAmount.text = _startAmountMoney.ToString("0");
             
             yield return null;
