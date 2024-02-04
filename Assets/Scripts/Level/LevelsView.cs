@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace;
 using TMPro;
 using UnityEngine;
@@ -10,10 +11,23 @@ namespace Level
         [SerializeField] private LevelsViewConfig _levelsViewConfig;
         [SerializeField] private Image[] _LevelsImages;
 
+        private TextMeshProUGUI[] _levelValueLabels;
+
+        private void Awake()
+        {
+            _levelValueLabels = new TextMeshProUGUI[_LevelsImages.Length];
+
+            for (int i = 0; i < _levelValueLabels.Length; i++)
+            {
+                _levelValueLabels[i] = _LevelsImages[i].GetComponentInChildren<TextMeshProUGUI>();
+            }
+            
+        }
+
         public void UpdateLevelsView()
         {
             SetCompletedLevelImage();
-            SetCurrentLevelImage();
+            //SetCurrentLevelImage();
             SetNotCompletedLevelImage();
         }
         
@@ -22,17 +36,18 @@ namespace Level
             for (int i = 0; i < _LevelsImages.Length; i++)
             {
                 _LevelsImages[i].sprite = _levelsViewConfig.NotCompletedLevelSprite;
+                _levelValueLabels[i].text = " ";
             }
         }
         private void SetCompletedLevelImage()
         {
 
-            for (int i = 0; i < PlayerPrefs.GetInt(GlobalConstants.CurrentLevel); i++)
+            for (int i = 0; i <= PlayerPrefs.GetInt(GlobalConstants.CurrentLevel); i++)
             {
                 var currentLevel = i + 1;
                 _LevelsImages[i].sprite = _levelsViewConfig.CompletedLevelSprite;
-                var textLabel = _LevelsImages[i].GetComponentInChildren<TextMeshProUGUI>();
-                textLabel.text = currentLevel.ToString();
+                
+                _levelValueLabels[i].text = currentLevel.ToString();
             }
         }
         

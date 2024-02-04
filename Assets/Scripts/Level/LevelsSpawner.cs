@@ -24,6 +24,11 @@ public class LevelsSpawner : MonoBehaviour
 
     public void SpawnLevel(int currentLevel)
     {
+        if (currentLevel >= _levelsPrefabs.Length)
+        {
+            return;
+        }
+        
         if (_currentLevel != null)
         {
             Destroy(_currentLevel);

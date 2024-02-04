@@ -26,11 +26,12 @@ namespace Level
 
         public void LoadNextLevel()
         {
-            CurrentLevelIndex++;
-            PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, CurrentLevelIndex);
-            
-            if (CurrentLevelIndex < levelsSpawner.LevelsCount)
+
+            if (CurrentLevelIndex + 1 < levelsSpawner.LevelsCount)
             {
+                CurrentLevelIndex++;
+                PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, CurrentLevelIndex);
+                
                 levelsSpawner.SpawnLevel(CurrentLevelIndex);
                 return;
             }
