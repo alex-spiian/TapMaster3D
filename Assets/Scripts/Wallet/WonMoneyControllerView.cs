@@ -23,7 +23,6 @@ public class WonMoneyControllerView : MonoBehaviour
         _moneyAmount.text = _startAmountMoney.ToString("0");
         StartCoroutine(CountingCubes());
     }
-
     private IEnumerator CountingCubes()
     {
         _currentTime = 0f;
