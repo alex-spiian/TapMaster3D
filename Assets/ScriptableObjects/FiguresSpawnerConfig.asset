@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FiguresSpawnerConfig
   m_EditorClassIdentifier: 
   <CubeFallingDuration>k__BackingField: 1.5
-  <MinDelayBetweenDrops>k__BackingField: 0.01
-  <MaxDelayBetweenDrops>k__BackingField: 0.05
+  <MinDelayBetweenDrops>k__BackingField: 0.001
+  <MaxDelayBetweenDrops>k__BackingField: 0.005
   <YValueToBeOutOfCamera>k__BackingField: 13
   <SpawnPoint>k__BackingField: {x: 0, y: 0, z: 6}

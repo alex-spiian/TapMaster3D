@@ -11,14 +11,17 @@ using UnityEngine;
 public class CubeMover : MonoBehaviour
 {
     public event Action CubeWasGone;
+
     [SerializeField] private Vector3 _direction;
 
     private SoundsManager _soundsManager;
     private Vector3 _initialPosition;
+    private bool _isMoving;
     private RaycastHit _hit;
     private List<RaycastHit> _hitsShakeAnimation = new();
     private int _countRaycast;
     private CubesController _cubesController;
+
     private void Awake()
     {
         _soundsManager = Container.Instance.SoundsManager;
@@ -32,15 +35,18 @@ public class CubeMover : MonoBehaviour
         if (IsWayFree())
         {
             var globalDirection = transform.TransformDirection(_direction);
-            transform.DOMove(globalDirection * 100, 10);
+            transform.DOMove(globalDirection * 100, 20);
             CubeWasGone?.Invoke();
             
+            
+
         }
         else
         {
-            CubeRaycastOnClickForShakeAnimation();
             MoveToObstacle();
         }
+
+        _isMoving = true;
         _initialPosition = transform.position;
     }
 
@@ -72,12 +78,15 @@ public class CubeMover : MonoBehaviour
     private bool IsWayFree()
     {
         CubeRaycastOnClick();
+        CubeRaycastOnClickForShakeAnimation();
         if (_hit.collider != null)
         {
-            if (_hit.transform.CompareTag("Cube"))
+            if (_hit.transform.GetComponent<CubeMover>()._isMoving)
             {
-                return false;
+                return true;
             }
+
+            return false;
         }
         return true;
     }
