@@ -35,10 +35,20 @@ public class CubeMover : MonoBehaviour
         if (IsWayFree())
         {
             var globalDirection = transform.TransformDirection(_direction);
-            transform.DOMove(globalDirection * 100, 20);
+            transform.DOMove(globalDirection * 100, 40);
             _isMoving = true;
             CubeWasGone?.Invoke();
+            
+            foreach (Transform child in transform)
+            {
+                // Проверяем тег
+                if (child.CompareTag("Effect"))
+                {
+                    child.gameObject.SetActive(true);
+                }
+            }
         }
+        
         else
         {
             MoveToObstacle();

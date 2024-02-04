@@ -8,6 +8,7 @@ public class MouseClickHandler : MonoBehaviour
 
     private void Update()
     {
+        // if getmousebutton
         if (!Input.GetMouseButtonDown(0)) return;
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (!Physics.Raycast(ray, out var hit, 50f)) return;
