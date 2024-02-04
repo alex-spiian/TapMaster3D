@@ -36,14 +36,16 @@ public class CubeMover : MonoBehaviour
         {
             var globalDirection = transform.TransformDirection(_direction);
             transform.DOMove(globalDirection * 100, 20);
+            _isMoving = true;
             CubeWasGone?.Invoke();
         }
         else
         {
             MoveToObstacle();
+            _isMoving = false;
         }
 
-        _isMoving = true;
+        
         _initialPosition = transform.position;
     }
 
