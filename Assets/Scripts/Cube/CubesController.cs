@@ -8,30 +8,30 @@ namespace Cube
         public event Action LastCubeWasGone;
 
         [SerializeField] private LevelsSpawner _levelsSpawner;
-        private int _countCubsInTotal;
+        public int CountCubsInTotal { get; private set; }
         private int _countGoneCubes;
 
         private void Awake()
         {
-            _countCubsInTotal = _levelsSpawner.CubesCount;
+            CountCubsInTotal = _levelsSpawner.CubesCount;
             
-           Debug.Log("cubes count = " + _countCubsInTotal);
+           Debug.Log("cubes count = " + CountCubsInTotal);
         }
 
         public CubesController(int countCubsInTotal)
         {
-            _countCubsInTotal = countCubsInTotal;
+            CountCubsInTotal = countCubsInTotal;
         }
         
         public void MarkCubeAsGone()
         {
-            _countCubsInTotal = _levelsSpawner.CubesCount;
+            CountCubsInTotal = _levelsSpawner.CubesCount;
             _countGoneCubes++;
             
-           Debug.Log("cubes in total " + _countCubsInTotal);
+           Debug.Log("cubes in total " + CountCubsInTotal);
            Debug.Log("cube # " + _countGoneCubes +" was gone");
             
-            if (_countGoneCubes == _countCubsInTotal)
+            if (_countGoneCubes == CountCubsInTotal)
             {
                 LastCubeWasGone?.Invoke();
             }

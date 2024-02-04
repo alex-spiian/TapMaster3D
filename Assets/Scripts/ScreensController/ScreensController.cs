@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace ScreensController
@@ -8,10 +9,12 @@ namespace ScreensController
         [SerializeField] private Canvas _defeatScreen;
         [SerializeField] private Canvas _shopScreen;
         [SerializeField] private Canvas _settingsScreen;
+        public event Action VictoryScreenLoaded;
 
         public void ShowVictoryScreen()
         {
             _victoryScreen.gameObject.SetActive(true);
+            VictoryScreenLoaded?.Invoke();
         }
   
         

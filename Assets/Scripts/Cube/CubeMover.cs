@@ -35,7 +35,7 @@ public class CubeMover : MonoBehaviour
         if (IsWayFree())
         {
             var globalDirection = transform.TransformDirection(_direction);
-            transform.DOMove(globalDirection * 100, 40);
+            transform.DOMove(globalDirection * 100, 30);
             _isMoving = true;
             CubeWasGone?.Invoke();
             
@@ -54,9 +54,7 @@ public class CubeMover : MonoBehaviour
             MoveToObstacle();
             _isMoving = false;
         }
-
         
-        _initialPosition = transform.position;
     }
 
 
