@@ -21,7 +21,7 @@ namespace Level
         private void Start()
         {
             LoadCurrentLevelIndex();
-            levelsSpawner.SpawnLevel(PlayerPrefs.GetInt(GlobalConstants.CurrentLevel));
+            //levelsSpawner.SpawnLevel(PlayerPrefs.GetInt(GlobalConstants.CurrentLevel));
         }
 
         public void LoadNextLevel()

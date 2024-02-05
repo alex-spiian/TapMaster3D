@@ -17,6 +17,9 @@ public class LevelsSpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] _levelsPrefabs;
 
+    [SerializeField]
+    private Transform _parentTransform;
+
     private CubeMover[] _allCubesOfCurrentLevel;
     private readonly List<Vector3> _cubesTargetPositions = new();
     private GameObject _currentLevel;
@@ -34,12 +37,11 @@ public class LevelsSpawner : MonoBehaviour
             Destroy(_currentLevel);
             _cubesTargetPositions.Clear();
         }
-        
-        _currentLevel = Instantiate(_levelsPrefabs[currentLevel]);
+
+        _currentLevel = Instantiate(_levelsPrefabs[currentLevel], _parentTransform);
         
         _currentLevel.transform.position = _levelSpawnerConfig.SpawnPoint;
         _allCubesOfCurrentLevel = _currentLevel.GetComponentsInChildren<CubeMover>();
-        transform.position = _levelSpawnerConfig.SpawnPoint;
         
         SetStartPositionForChildren();
         StartCoroutine(MoveCubesInRow());

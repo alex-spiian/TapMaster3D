@@ -14,6 +14,7 @@ namespace Level
         {
             _levelsSpawner.SpawnLevel(_levelsSwitcher.CurrentLevelIndex);
         }
+        
 
     }
 }
