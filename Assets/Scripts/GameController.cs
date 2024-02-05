@@ -1,4 +1,5 @@
 using Cube;
+using DefaultNamespace.Player;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -9,6 +10,9 @@ namespace DefaultNamespace
         private ScreensController.ScreensController _screensController;
         [SerializeField]
         private CubesController _cubesController;
+
+        [SerializeField] private MouseClickHandler _mouseClickHandler;
+        [SerializeField] private MovesCounter _movesCounter;
 
         [SerializeField] private WonMoneyController _wonMoneyController;
         [SerializeField] private WonMoneyControllerView _wonMoneyControllerView;
@@ -23,6 +27,9 @@ namespace DefaultNamespace
             _wonMoneyController.WinningMoneyCalculated += _wonMoneyControllerView.SetWonAmountMoney;
             _wonMoneyController.WinningMoneyCalculated += _wallet.UpdateAmountMoney;
             _wallet.AmountMoneyUpdated += _walletView.SetAmountMoney;
+
+            _mouseClickHandler.CubeWasTaped += _movesCounter.SpendOneMove;
+            _movesCounter.AllMovesWasSpent += _screensController.ShowDefeatScreen;
         }
 
         private void OnDestroy()
@@ -33,6 +40,9 @@ namespace DefaultNamespace
             _wonMoneyController.WinningMoneyCalculated -= _wonMoneyControllerView.SetWonAmountMoney;
             _wonMoneyController.WinningMoneyCalculated -= _wallet.UpdateAmountMoney;
             _wallet.AmountMoneyUpdated += _walletView.SetAmountMoney;
+            
+            _mouseClickHandler.CubeWasTaped -= _movesCounter.SpendOneMove;
+            _movesCounter.AllMovesWasSpent -= _screensController.ShowDefeatScreen;
         }
     }
 }

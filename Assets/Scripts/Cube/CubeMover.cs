@@ -7,16 +7,18 @@ using DefaultNamespace.SoundsManager;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CubeMover : MonoBehaviour
 {
     public event Action CubeWasGone;
+    public bool IsMoving;
+    public bool IsGoingToObstacle;
 
     [SerializeField] private Vector3 _direction;
 
     private SoundsManager _soundsManager;
     private Vector3 _initialPosition;
-    private bool _isMoving;
     private RaycastHit _hit;
     private List<RaycastHit> _hitsShakeAnimation = new();
     private int _countRaycast;
@@ -32,11 +34,13 @@ public class CubeMover : MonoBehaviour
 
     public void TryMove()
     {
+        if (IsGoingToObstacle || IsMoving) return;
+        
         if (IsWayFree())
         {
             var globalDirection = transform.TransformDirection(_direction);
             transform.DOMove(globalDirection * 100, 40);
-            _isMoving = true;
+            IsMoving = true;
             transform.SetParent(null);
             
             var moveDirection = transform.up;
@@ -61,7 +65,6 @@ public class CubeMover : MonoBehaviour
         else
         {
             MoveToObstacle();
-            _isMoving = false;
         }
 
         
@@ -71,23 +74,20 @@ public class CubeMover : MonoBehaviour
 
     private void MoveToObstacle()
     {
+        IsGoingToObstacle = true;
+        
         _initialPosition = transform.localPosition;
-        var sequence = DOTween.Sequence();
         Vector3 targetPosition = _hit.transform.localPosition -
                                  (_hit.transform.localPosition - transform.localPosition).normalized * 0.9f;
-        sequence.Append(transform.DOLocalMove(targetPosition, 0.5f)).Complete();
-        StartCoroutine( ShakeAnimation());
-        sequence.Append(transform.DOLocalMove(_initialPosition, 0.5f));
+        
+        var sequence = DOTween.Sequence();
+        sequence.Append(transform.DOLocalMove(targetPosition, 0.2f));
+        
+        StartCoroutine(ShakeAnimation());
+        sequence.Append(transform.DOLocalMove(_initialPosition, 0.2f)).
+            OnComplete(() => IsGoingToObstacle = false);
+        
         sequence.Play();
-
-       // var initialPosition = transform.localPosition;
-       // var endPosition =
-       //     new Vector3(_hit.transform.localPosition.x, _hit.transform.localPosition.y, _hit.transform.localPosition.z)
-       //     - transform.up;
-//
-//
-       // transform.DOLocalMove(endPosition, 0.2f).OnComplete(() => transform.DOLocalMove(initialPosition, 0.2f));
-
 
     }
 
@@ -109,7 +109,7 @@ public class CubeMover : MonoBehaviour
         CubeRaycastOnClickForShakeAnimation();
         if (_hit.collider != null)
         {
-            if (_hit.transform.GetComponent<CubeMover>()._isMoving)
+            if (_hit.transform.GetComponent<CubeMover>().IsMoving)
             {
                 return true;
             }

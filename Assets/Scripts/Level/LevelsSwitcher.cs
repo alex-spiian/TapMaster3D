@@ -11,17 +11,18 @@ namespace Level
     public class LevelsSwitcher : MonoBehaviour
     {
         public UnityEvent GameWasCompleted;
+        public event Action LevelWasChanged;
+        public event Action GameWasStartedFromBeginning;
+        public event Action LevelWasRestarted;
 
         public int CurrentLevelIndex { get; private set; }
 
         [SerializeField] private LevelsSpawner levelsSpawner;
         private GameObject _currentLevel;
-        [SerializeField] private CubesController _cubesController;
 
         private void Start()
         {
             LoadCurrentLevelIndex();
-            //levelsSpawner.SpawnLevel(PlayerPrefs.GetInt(GlobalConstants.CurrentLevel));
         }
 
         public void LoadNextLevel()
@@ -33,6 +34,7 @@ namespace Level
                 PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, CurrentLevelIndex);
                 
                 levelsSpawner.SpawnLevel(CurrentLevelIndex);
+                LevelWasChanged?.Invoke();
                 return;
             }
             
@@ -41,16 +43,16 @@ namespace Level
 
         public void Restart()
         {
-            _cubesController.Reset();
             levelsSpawner.SpawnLevel(CurrentLevelIndex);
+            LevelWasRestarted?.Invoke();
         }
 
         public void StartFromBeginning()
         {
             CurrentLevelIndex = 0;
             PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, CurrentLevelIndex);
-            
             levelsSpawner.SpawnLevel(CurrentLevelIndex);
+            GameWasStartedFromBeginning?.Invoke();
         }
 
         private void LoadCurrentLevelIndex()

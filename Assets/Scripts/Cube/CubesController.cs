@@ -14,8 +14,7 @@ namespace Cube
         private void Awake()
         {
             CountCubsInTotal = _levelsSpawner.CubesCount;
-            
-           Debug.Log("cubes count = " + CountCubsInTotal);
+            Debug.Log("cubes count = " + CountCubsInTotal);
         }
 
         public CubesController(int countCubsInTotal)

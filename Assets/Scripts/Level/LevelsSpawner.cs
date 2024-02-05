@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Player;
 using DefaultNamespace.SoundsManager;
 using DG.Tweening;
 using Level;
@@ -12,13 +13,11 @@ public class LevelsSpawner : MonoBehaviour
 {
     public int LevelsCount => _levelsPrefabs.Length;
     public int CubesCount => _allCubesOfCurrentLevel.Length;
-    [SerializeField]
-    private LevelSpawnerConfig _levelSpawnerConfig;
-    [SerializeField]
-    private GameObject[] _levelsPrefabs;
+    [SerializeField] private LevelSpawnerConfig _levelSpawnerConfig;
+    [SerializeField] private GameObject[] _levelsPrefabs;
+    [SerializeField] private Transform _parentTransform;
+    [SerializeField] private MovesCounter _movesCounter;
 
-    [SerializeField]
-    private Transform _parentTransform;
 
     private CubeMover[] _allCubesOfCurrentLevel;
     private readonly List<Vector3> _cubesTargetPositions = new();
@@ -43,6 +42,7 @@ public class LevelsSpawner : MonoBehaviour
         _currentLevel.transform.position = _levelSpawnerConfig.SpawnPoint;
         _allCubesOfCurrentLevel = _currentLevel.GetComponentsInChildren<CubeMover>();
         
+        _movesCounter.InitializeMovesCount(_allCubesOfCurrentLevel.Length);
         SetStartPositionForChildren();
         StartCoroutine(MoveCubesInRow());
     }

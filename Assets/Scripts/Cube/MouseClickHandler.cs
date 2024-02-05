@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using NUnit.Framework;
@@ -5,6 +6,8 @@ using UnityEngine;
 
 public class MouseClickHandler : MonoBehaviour
 {
+    public event Action CubeWasTaped;
+    
     [SerializeField] private Camera _camera;
 
     private bool IsCanClick = true;
@@ -21,7 +24,10 @@ public class MouseClickHandler : MonoBehaviour
             if (hit.transform.CompareTag("Cube"))
             {
                 var cubeMover = hit.transform.GetComponent<CubeMover>();
+                if (cubeMover.IsMoving) return;
+                
                 cubeMover.TryMove();
+                CubeWasTaped?.Invoke();
             }
         }
     }

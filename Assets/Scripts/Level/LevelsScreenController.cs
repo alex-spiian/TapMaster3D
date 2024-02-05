@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 namespace Level
 {
-    public class LevelsView : MonoBehaviour
+    public class LevelsScreenController : MonoBehaviour
     {
         [SerializeField] private LevelsViewConfig _levelsViewConfig;
         [SerializeField] private Image[] _LevelsImages;
 
         private TextMeshProUGUI[] _levelValueLabels;
 
-        private void Awake()
+        public void Initialize()
         {
             _levelValueLabels = new TextMeshProUGUI[_LevelsImages.Length];
 
@@ -22,15 +22,17 @@ namespace Level
                 _levelValueLabels[i] = _LevelsImages[i].GetComponentInChildren<TextMeshProUGUI>();
             }
             
+            UpdateLevelsScreen();
+            
         }
 
-        public void UpdateLevelsView()
+        public void UpdateLevelsScreen()
         {
             SetCompletedLevelImage();
-            //SetCurrentLevelImage();
             SetNotCompletedLevelImage();
         }
         
+  
         public void ResetLevels()
         {
             for (int i = 0; i < _LevelsImages.Length; i++)
@@ -39,6 +41,7 @@ namespace Level
                 _levelValueLabels[i].text = " ";
             }
         }
+        
         private void SetCompletedLevelImage()
         {
 
@@ -59,13 +62,6 @@ namespace Level
             {
                 _LevelsImages[i].sprite = _levelsViewConfig.NotCompletedLevelSprite;
             }
-        }
-        
-        private void SetCurrentLevelImage()
-        {
-            var currentLevelIndex = PlayerPrefs.GetInt(GlobalConstants.CurrentLevel);
-            
-            _LevelsImages[currentLevelIndex].sprite = _levelsViewConfig.CurrentLevelSprite;
         }
         
 

@@ -3,4 +3,5 @@ using UnityEngine;
 public class LevelConfig : ScriptableObject
 {
     [field:SerializeField] public int LevelVictoryReward { get; private set; }
+    [field:SerializeField] public int AvailableMoves { get; private set; }
 }
