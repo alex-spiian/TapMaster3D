@@ -8,7 +8,8 @@ public class SingularityCore : MonoBehaviour
     //This script is responsible for what happens when the pullable objects reach the core
     //by default, the game objects are simply turned off
     //as this is much more performant than destroying the objects
-    
+
+    [SerializeField] private BlackHole _blackHole;
     private int _countCubesDestroy;
     void OnTriggerStay (Collider other) {
         if(other.GetComponent<SingularityPullable>())
@@ -26,6 +27,7 @@ public class SingularityCore : MonoBehaviour
             _countCubesDestroy++;
             Debug.Log(_countCubesDestroy);
             
+            _blackHole.OnCubeWasDestroyed();
         }
     }
 

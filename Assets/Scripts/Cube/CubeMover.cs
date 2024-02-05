@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 
 public class CubeMover : MonoBehaviour
 {
-    public event Action CubeWasGone;
+    public event Action<int> CubeWasGone;
     public bool IsMoving;
     public bool IsGoingToObstacle;
 
@@ -29,7 +29,7 @@ public class CubeMover : MonoBehaviour
         _soundsManager = Container.Instance.SoundsManager;
         _cubesController = Container.Instance.CubesController;
 
-        CubeWasGone += _cubesController.MarkCubeAsGone;
+        CubeWasGone += _cubesController.MarkCubesAsGone;
     }
 
     public void TryMove()
@@ -51,7 +51,7 @@ public class CubeMover : MonoBehaviour
             var endPosition = transform.position + moveDirection * distance;
 
             transform.DOMove(endPosition, moveDuration).OnComplete(() => Destroy(gameObject));
-            CubeWasGone?.Invoke();
+            CubeWasGone?.Invoke(1);
 
             foreach (Transform child in transform)
             { 
@@ -67,7 +67,6 @@ public class CubeMover : MonoBehaviour
             MoveToObstacle();
         }
 
-        
         _initialPosition = transform.position;
     }
 
@@ -79,7 +78,6 @@ public class CubeMover : MonoBehaviour
         _initialPosition = transform.localPosition;
         Vector3 targetPosition = _hit.transform.localPosition -
                                  (_hit.transform.localPosition - transform.localPosition).normalized * 0.9f;
-        
         var sequence = DOTween.Sequence();
         sequence.Append(transform.DOLocalMove(targetPosition, 0.2f));
         
@@ -155,6 +153,6 @@ public class CubeMover : MonoBehaviour
 
     private void OnDestroy()
     {
-        CubeWasGone -= _cubesController.MarkCubeAsGone;
+        CubeWasGone -= _cubesController.MarkCubesAsGone;
     }
 }

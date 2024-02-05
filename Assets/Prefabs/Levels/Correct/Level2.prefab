@@ -428,6 +428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
 --- !u!54 &4188244970175771149
 Rigidbody:
@@ -1344,6 +1346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
 --- !u!54 &6880787885350603222
 Rigidbody:
@@ -1496,6 +1500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
 --- !u!54 &9164732029987801611
 Rigidbody:
@@ -2095,6 +2101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
 --- !u!54 &7963880971217767298
 Rigidbody:
@@ -2215,6 +2223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
 --- !u!54 &997703942751354526
 Rigidbody:
@@ -3891,6 +3901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
 --- !u!54 &8372177643858162171
 Rigidbody:
@@ -4094,6 +4106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
 --- !u!54 &6761429395904480439
 Rigidbody:
@@ -5004,6 +5018,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
 --- !u!54 &1958067074272323051
 Rigidbody:
