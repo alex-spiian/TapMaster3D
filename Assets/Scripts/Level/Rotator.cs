@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Rotator : MonoBehaviour
@@ -20,7 +21,15 @@ public class Rotator : MonoBehaviour
             transform.RotateAround(transform.position, Vector3.right, rotationY);
         }
     }
-    
+
+    public void RotateAround()
+    {
+        var currentRotate = transform.eulerAngles;
+        currentRotate.y += 600;
+        currentRotate.x += 600;
+        transform.DORotate(currentRotate, 4f,RotateMode.FastBeyond360);
+
+    }
     
     public void RotateEnabled()
     {

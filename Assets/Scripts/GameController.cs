@@ -43,6 +43,7 @@ namespace DefaultNamespace
             
             _mouseClickHandler.CubeWasTaped -= _movesCounter.SpendOneMove;
             _movesCounter.AllMovesWasSpent -= _screensController.ShowDefeatScreen;
+            _wallet.AmountMoneyUpdated -= _walletView.SetAmountMoney;
         }
     }
 }
