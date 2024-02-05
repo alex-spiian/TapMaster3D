@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class Wallet : MonoBehaviour 
 {
-    private int _moneyAmount;
+    private int _allMoneyAmount;
     public event Action<int> AmountMoneyUpdated;
 
-    public void UpdateAmountMoney(int money)
+    public void UpdateAmountMoney(int wonMoney)
     {
-        _moneyAmount += money;
-        AmountMoneyUpdated?.Invoke(_moneyAmount);
+        _allMoneyAmount += wonMoney;
+        AmountMoneyUpdated?.Invoke(_allMoneyAmount);
     }
 }
 

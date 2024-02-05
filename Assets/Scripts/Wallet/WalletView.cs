@@ -15,26 +15,10 @@ public class WalletView : MonoBehaviour
         _wonMoney = money;
        
     }
-
     public void UpdateAmountMoney()
     {
-        StartCoroutine(UpdateAmountMoneyCoroutine());
-    }
-
-    private IEnumerator UpdateAmountMoneyCoroutine()
-    {
-        var currentTime = 0f;
-
-        while (currentTime < _timeUpdateResources)
-        {
-            _startAmountMoney = Mathf.Lerp(_startAmountMoney, _wonMoney,
-                currentTime / _timeUpdateResources);
-
-            currentTime += Time.deltaTime;
-            _moneyAmount.text = _startAmountMoney.ToString("0");
-            
-            yield return null;
-        }
-       
+        StartCoroutine(ResourceCounterUtility.CountResources(_moneyAmount, _timeUpdateResources, _startAmountMoney,
+            _wonMoney));
+        _startAmountMoney = _wonMoney;
     }
 }
