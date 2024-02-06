@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -8,11 +9,11 @@ public class WalletView : MonoBehaviour
     private float _startAmountMoney ;
     private float _timeUpdateResources = 1f;
     private int _wonMoney;
-
-
+    
     public void SetAmountMoney(int money)
     {
         _wonMoney = money;
+        UpdateAmountMoney();
        
     }
     public void UpdateAmountMoney()

@@ -25,7 +25,8 @@ namespace DefaultNamespace
             _screensController.VictoryScreenLoaded += _wonMoneyControllerView.ShowCountingCubes;
             _cubesController.LastCubeWasGone += _wonMoneyController.CalculateWonAmountMoney;
             _wonMoneyController.WinningMoneyCalculated += _wonMoneyControllerView.SetWonAmountMoney;
-            _wonMoneyController.WinningMoneyCalculated += _wallet.UpdateAmountMoney;
+            _wonMoneyController.WinningMoneyCalculated += _wallet.AddMoney;
+            _wallet.AmountMoneyUpdated += _walletView.SetAmountMoney;
             _wallet.AmountMoneyUpdated += _walletView.SetAmountMoney;
 
             _mouseClickHandler.CubeWasTaped += _movesCounter.SpendOneMove;
@@ -38,7 +39,7 @@ namespace DefaultNamespace
             _screensController.VictoryScreenLoaded -= _wonMoneyControllerView.ShowCountingCubes;
             _cubesController.LastCubeWasGone -= _wonMoneyController.CalculateWonAmountMoney;
             _wonMoneyController.WinningMoneyCalculated -= _wonMoneyControllerView.SetWonAmountMoney;
-            _wonMoneyController.WinningMoneyCalculated -= _wallet.UpdateAmountMoney;
+            _wonMoneyController.WinningMoneyCalculated -= _wallet.AddMoney;
             _wallet.AmountMoneyUpdated -= _walletView.SetAmountMoney;
             
             _mouseClickHandler.CubeWasTaped -= _movesCounter.SpendOneMove;

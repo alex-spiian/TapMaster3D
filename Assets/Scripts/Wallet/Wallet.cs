@@ -1,15 +1,42 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Wallet : MonoBehaviour 
 {
-    private int _allMoneyAmount;
     public event Action<int> AmountMoneyUpdated;
+    public event Action MoneyWasNotEnough;
+    public int Money { get; private set; }
 
-    public void UpdateAmountMoney(int wonMoney)
+
+    private void Awake()
     {
-        _allMoneyAmount += wonMoney;
-        AmountMoneyUpdated?.Invoke(_allMoneyAmount);
+        Money = 1000;
+        AmountMoneyUpdated?.Invoke(Money);
+    }
+
+    public void AddMoney(int wonMoney)
+    {
+        Money += wonMoney;
+        AmountMoneyUpdated?.Invoke(Money);
+    }
+
+    public void SpendMoney(int price)
+    {
+        Money -= price;
+        AmountMoneyUpdated?.Invoke(Money);
+    }
+
+    public bool HasEnoughMoney(int price)
+    {
+        if (Money >= price)
+        {
+            return true;
+        }
+
+        Debug.Log("Денег нет!!!");
+        MoneyWasNotEnough?.Invoke();
+        return false;
     }
 }
 
