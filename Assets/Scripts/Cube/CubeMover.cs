@@ -101,7 +101,7 @@ public class CubeMover : MonoBehaviour
         _countRaycast = 0;
     }
 
-    private bool IsWayFree()
+    public bool IsWayFree()
     {
         CubeRaycastOnClick();
         CubeRaycastOnClickForShakeAnimation();

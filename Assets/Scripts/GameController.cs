@@ -27,8 +27,7 @@ namespace DefaultNamespace
             _wonMoneyController.WinningMoneyCalculated += _wonMoneyControllerView.SetWonAmountMoney;
             _wonMoneyController.WinningMoneyCalculated += _wallet.AddMoney;
             _wallet.AmountMoneyUpdated += _walletView.SetAmountMoney;
-            _wallet.AmountMoneyUpdated += _walletView.SetAmountMoney;
-
+            
             _mouseClickHandler.CubeWasTaped += _movesCounter.SpendOneMove;
             _movesCounter.AllMovesWasSpent += _screensController.ShowDefeatScreen;
         }

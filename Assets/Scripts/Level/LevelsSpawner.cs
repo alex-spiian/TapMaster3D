@@ -19,7 +19,7 @@ public class LevelsSpawner : MonoBehaviour
     [SerializeField] private MovesCounter _movesCounter;
 
 
-    private CubeMover[] _allCubesOfCurrentLevel;
+    public CubeMover[] _allCubesOfCurrentLevel { get; private set; }
     private readonly List<Vector3> _cubesTargetPositions = new();
     private GameObject _currentLevel;
     
