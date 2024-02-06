@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DefaultNamespace.SoundsManager
 {
@@ -11,7 +12,9 @@ namespace DefaultNamespace.SoundsManager
         [SerializeField] private AudioClip _collision;
         [SerializeField] private AudioClip _victory;
         [SerializeField] private AudioClip _defeat;
-
+        [SerializeField] private AudioClip _laser;
+        
+        
         public void PlayBackground()
         {
             _audioSource.Play();
@@ -40,6 +43,11 @@ namespace DefaultNamespace.SoundsManager
         public void PlayDefeat()
         {
             _audioSource.PlayOneShot(_defeat);
+        }
+
+        public void PlayShotLaser()
+        {
+            _audioSource.PlayOneShot(_laser);
         }
 
         public void MuteUnmute()
