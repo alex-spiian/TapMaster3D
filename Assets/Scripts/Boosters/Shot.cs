@@ -9,19 +9,19 @@ public class Shot : MonoBehaviour
     [SerializeField] private float _shootForce; // Сила выстрела 30
     [SerializeField] private int _maxShots; // Максимальное количество выстрелов 1
     [SerializeField] private int _timerToDestroy; // Таймер для отключения объекта лазер 7
-    
-    private int _shotsRemaining; // Количество оставшихся выстрелов
-    private bool _canShoot=false; // Флаг, позволяющий выполнять выстрелы
-    private SoundsManager _soundsManager;
-    
 
-    void Start()
+    private int _shotsRemaining; // Количество оставшихся выстрелов
+    private bool _canShoot = false; // Флаг, позволяющий выполнять выстрелы
+    private SoundsManager _soundsManager;
+
+
+    private void Start()
     {
         _shotsRemaining = _maxShots; // Устанавливаем начальное количество выстрелов
         _soundsManager = Container.Instance.SoundsManager; // звук
     }
 
-    void Update()
+    private void Update()
     {
         // Проверяем нажатие кнопки мыши и возможность стрелять
         if (Input.GetMouseButtonDown(0) && _canShoot && _shotsRemaining > 0)
@@ -36,7 +36,7 @@ public class Shot : MonoBehaviour
                 // Если луч попал в объект, создаем выстрел
                 GameObject shotObject = Instantiate(_objectToShoot, transform.position, Quaternion.identity);
 
-                // Запускаем корутину с задержкой в 3 секунды
+                // Запускаем корутину с задержкой
                 StartCoroutine(DestroyObjectAfterDelay(shotObject, _timerToDestroy));
 
                 // Определяем направление выстрела в сторону попадания луча
@@ -51,7 +51,7 @@ public class Shot : MonoBehaviour
 
                     // Уменьшаем количество оставшихся выстрелов
                     _shotsRemaining--;
-                    
+
                     _soundsManager.PlayShotLaser(); // звук выстрела
                 }
             }
