@@ -11,6 +11,15 @@ public class SingularityCore : MonoBehaviour
 
     [SerializeField] private BlackHole _blackHole;
     private int _countCubesDestroy;
+    
+    private void Awake()
+    {
+        if(GetComponent<SphereCollider>()){
+            GetComponent<SphereCollider>().isTrigger = true;
+        }
+    }
+    
+    
     void OnTriggerStay (Collider other) {
         if(other.GetComponent<SingularityPullable>())
         {
@@ -35,10 +44,5 @@ public class SingularityCore : MonoBehaviour
     {
         _countCubesDestroy = 0;
     }
-
-    void Awake(){
-        if(GetComponent<SphereCollider>()){
-            GetComponent<SphereCollider>().isTrigger = true;
-        }
-    }
+    
 }

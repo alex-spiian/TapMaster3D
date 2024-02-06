@@ -1,5 +1,6 @@
 using Cube;
 using DefaultNamespace.Player;
+using Level;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -18,6 +19,8 @@ namespace DefaultNamespace
         [SerializeField] private WonMoneyControllerView _wonMoneyControllerView;
         [SerializeField] private Wallet _wallet;
         [SerializeField] private WalletView _walletView;
+        [SerializeField] private LevelsSwitcher _levelsSwitcher;
+        [SerializeField] private LevelsController  _levelsController;
         
         private void Awake()
         {
@@ -32,6 +35,21 @@ namespace DefaultNamespace
             _mouseClickHandler.CubeWasTaped += _movesCounter.SpendOneMove;
             _movesCounter.AllMovesWasSpent += _screensController.ShowDefeatScreen;
         }
+        
+        public void StartGame()
+        {
+            _levelsController.Initialize();
+            _cubesController.Initialize();
+        }
+
+        public void RemoveAllData()
+        {
+            _levelsSwitcher.StartFromBeginning();
+            _wallet.SetDefaultMoney();
+            
+            // Player.RemoveData();
+            // .....
+        }
 
         private void OnDestroy()
         {
@@ -45,5 +63,6 @@ namespace DefaultNamespace
             _mouseClickHandler.CubeWasTaped -= _movesCounter.SpendOneMove;
             _movesCounter.AllMovesWasSpent -= _screensController.ShowDefeatScreen;
         }
+        
     }
 }

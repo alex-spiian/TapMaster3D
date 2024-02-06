@@ -11,7 +11,6 @@ public class Wallet : MonoBehaviour
 
     private void Awake()
     {
-        Money = 1000;
         AmountMoneyUpdated?.Invoke(Money);
     }
 
@@ -37,6 +36,12 @@ public class Wallet : MonoBehaviour
         Debug.Log("Денег нет!!!");
         MoneyWasNotEnough?.Invoke();
         return false;
+    }
+
+    public void SetDefaultMoney()
+    {
+        Money = 0;
+        AmountMoneyUpdated?.Invoke(Money);
     }
 }
 

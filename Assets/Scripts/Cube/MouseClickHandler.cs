@@ -10,13 +10,13 @@ public class MouseClickHandler : MonoBehaviour
     
     [SerializeField] private Camera _camera;
 
-    private bool IsCanClick = true;
+    private bool CanClick = true;
 
     private void Update()
     {
         if (!Input.GetMouseButtonDown(0)) return;
         
-        if (IsCanClick)
+        if (CanClick)
         {
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
             if (!Physics.Raycast(ray, out var hit, 50f)) return;
@@ -32,9 +32,9 @@ public class MouseClickHandler : MonoBehaviour
         }
     }
 
-    public void ClickEnabled()
+    public void ClickEnabled(bool onOff)
     {
-        IsCanClick = !IsCanClick;
+        CanClick = onOff;
     }
     
 

@@ -9,23 +9,24 @@ public class Shot : MonoBehaviour
     [SerializeField] private float _shootForce; // Сила выстрела 30
     [SerializeField] private int _maxShots; // Максимальное количество выстрелов 1
     [SerializeField] private int _timerToDestroy; // Таймер для отключения объекта лазер 7
+    [SerializeField] private MouseClickHandler _mouseClickHandler;
     
     private int _shotsRemaining; // Количество оставшихся выстрелов
     private bool _canShoot=false; // Флаг, позволяющий выполнять выстрелы
     private SoundsManager _soundsManager;
     
-
-    void Start()
+    private void Start()
     {
         _shotsRemaining = _maxShots; // Устанавливаем начальное количество выстрелов
         _soundsManager = Container.Instance.SoundsManager; // звук
     }
 
-    void Update()
+    private void Update()
     {
         // Проверяем нажатие кнопки мыши и возможность стрелять
         if (Input.GetMouseButtonDown(0) && _canShoot && _shotsRemaining > 0)
         {
+
             // Создаем луч из позиции мыши в мировом пространстве
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -54,12 +55,14 @@ public class Shot : MonoBehaviour
                     
                     _soundsManager.PlayShotLaser(); // звук выстрела
                 }
+
             }
         }
 
         // Проверяем, достигнуто ли максимальное количество выстрелов
-        if (_shotsRemaining <= 0)
+        if (_shotsRemaining <= 0 && _canShoot)
         {
+            _mouseClickHandler.ClickEnabled(true);
             _canShoot = false; // Отключаем возможность выстрелов
         }
     }
@@ -75,6 +78,7 @@ public class Shot : MonoBehaviour
     // Активируем кнопкой бустер и восстанавливаем заряды и флаги
     public void ActiveShot()
     {
+        _mouseClickHandler.ClickEnabled(false);
         _canShoot = true;
         _shotsRemaining = _maxShots;
     }

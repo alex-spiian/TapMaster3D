@@ -10,6 +10,8 @@ namespace Level
     {
         [SerializeField] private LevelsViewConfig _levelsViewConfig;
         [SerializeField] private Image[] _LevelsImages;
+        [SerializeField] private LevelsSwitcher _levelsSwitcher;
+        [SerializeField] private ScreensController.ScreensController _screensController;
 
         private TextMeshProUGUI[] _levelValueLabels;
 
@@ -41,11 +43,19 @@ namespace Level
                 _levelValueLabels[i].text = " ";
             }
         }
+
+        public void TryLoadLevel(int index)
+        {
+            if (_levelsSwitcher.CanLoadLevel(index))
+            {
+                _screensController.HideAllScreens();
+            }
+        }
         
         private void SetCompletedLevelImage()
         {
 
-            for (int i = 0; i <= PlayerPrefs.GetInt(GlobalConstants.CurrentLevel); i++)
+            for (int i = 0; i <= PlayerPrefs.GetInt("LastCompletedLevel"); i++)
             {
                 var currentLevel = i + 1;
                 _LevelsImages[i].sprite = _levelsViewConfig.CompletedLevelSprite;
@@ -56,7 +66,7 @@ namespace Level
         
         private void SetNotCompletedLevelImage()
         {
-            var currentLevelIndex = PlayerPrefs.GetInt(GlobalConstants.CurrentLevel);
+            var currentLevelIndex = PlayerPrefs.GetInt("LastCompletedLevel");
             
             for (int i = currentLevelIndex + 1; i < _LevelsImages.Length; i++)
             {

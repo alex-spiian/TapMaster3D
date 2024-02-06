@@ -31,9 +31,9 @@ public class Rotator : MonoBehaviour
 
     }
     
-    public void RotateEnabled()
+    public void RotateEnabled(bool onOff)
     {
-        CanRotate = !CanRotate;
+        CanRotate = onOff;
     }
 
 }

@@ -36,12 +36,15 @@ public class BlackHole : MonoBehaviour
             currentTime -= Time.deltaTime;
             if (Physics.Raycast(ray, out var hit, _maxDistance))
             {
-             
-                hit.rigidbody.isKinematic = false;
-                hit.collider.gameObject.transform.SetParent(null);
+                Debug.Log("черная дыра попала в " + hit.collider.gameObject.name);
 
-
-                hit.collider.gameObject.transform.DOScale(Vector3.zero, 1f);
+                if (hit.rigidbody != null)
+                {
+                    hit.rigidbody.isKinematic = false;
+                    hit.collider.gameObject.transform.SetParent(null);
+                    hit.collider.gameObject.transform.DOScale(Vector3.zero, 1f);
+                }
+                
             }
 
             yield return null;

@@ -10,8 +10,9 @@ namespace Level
         [SerializeField] private LevelView levelView;
         [SerializeField] private LevelsScreenController _levelsScreenController;
         [SerializeField] private CubesController _cubesController;
+        [SerializeField] private ScreensController.ScreensController _screensController;
 
-        private void Awake()
+        public void Initialize()
         {
             _levelsSpawner.SpawnLevel(_levelsSwitcher.CurrentLevelIndex);
             levelView.UpdateCurrentLevelView();
@@ -24,6 +25,8 @@ namespace Level
             _levelsSwitcher.GameWasStartedFromBeginning += _levelsScreenController.UpdateLevelsScreen;
             _levelsSwitcher.GameWasStartedFromBeginning += _cubesController.Reset;
             _levelsSwitcher.LevelWasRestarted += _cubesController.Reset;
+            _levelsSwitcher.LevelWasChanged += _cubesController.Reset;
+            _levelsSwitcher.GameWasCompleted += _screensController.ShowGameCompletedScreen;
 
         }
 
