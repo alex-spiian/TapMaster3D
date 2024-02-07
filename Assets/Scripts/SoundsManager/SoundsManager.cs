@@ -9,6 +9,7 @@ namespace DefaultNamespace.SoundsManager
         [SerializeField] private AudioSource _background;
         
         [SerializeField] private AudioClip _click;
+        [SerializeField] private AudioClip _buttonClick;
         [SerializeField] private AudioClip _collision;
         [SerializeField] private AudioClip _victory;
         [SerializeField] private AudioClip _defeat;
@@ -28,6 +29,11 @@ namespace DefaultNamespace.SoundsManager
         public void PlayClick()
         {
             _audioSource.PlayOneShot(_click);
+        }
+        
+        public void PlayButtonClick()
+        {
+            _audioSource.PlayOneShot(_buttonClick);
         }
         
         public void PlayCollision()

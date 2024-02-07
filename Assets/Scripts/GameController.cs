@@ -21,10 +21,12 @@ namespace DefaultNamespace
         [SerializeField] private WalletView _walletView;
         [SerializeField] private LevelsSwitcher _levelsSwitcher;
         [SerializeField] private LevelsController  _levelsController;
+        [SerializeField] private SoundsManager.SoundsManager  _soundsManager;
         
         private void Awake()
         {
             _cubesController.LastCubeWasGone += _screensController.ShowVictoryScreen;
+            _cubesController.LastCubeWasGone += _soundsManager.PlayVictory;
             _screensController.VictoryScreenLoaded += _wonMoneyControllerView.ShowCountingCubes;
             _cubesController.LastCubeWasGone += _wonMoneyController.CalculateWonAmountMoney;
             _wonMoneyController.WinningMoneyCalculated += _wonMoneyControllerView.SetWonAmountMoney;
@@ -33,7 +35,9 @@ namespace DefaultNamespace
             _wallet.AmountMoneyUpdated += _walletView.SetAmountMoney;
 
             _mouseClickHandler.CubeWasTaped += _movesCounter.SpendOneMove;
+            _mouseClickHandler.CubeWasTaped += _soundsManager.PlayClick;
             _movesCounter.AllMovesWasSpent += _screensController.ShowDefeatScreen;
+            _movesCounter.AllMovesWasSpent += _soundsManager.PlayDefeat;
         }
         
         public void StartGame()

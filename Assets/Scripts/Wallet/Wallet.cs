@@ -11,6 +11,7 @@ public class Wallet : MonoBehaviour
 
     private void Awake()
     {
+        Money = 1000;
         AmountMoneyUpdated?.Invoke(Money);
     }
 

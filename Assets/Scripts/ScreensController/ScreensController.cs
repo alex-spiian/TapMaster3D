@@ -19,6 +19,8 @@ namespace ScreensController
         [SerializeField] private MouseClickHandler _mouseClickHandler;
         [SerializeField] private Rotator _rotator;
 
+        public bool IsAnyWindowOpened;
+
         public void ShowVictoryScreen()
         {
             HideAllScreens();
@@ -27,12 +29,15 @@ namespace ScreensController
             _mouseClickHandler.ClickEnabled(false);
             _victoryScreen.gameObject.SetActive(true);
             VictoryScreenLoaded?.Invoke();
+            IsAnyWindowOpened = true;
         }
         public void HideVictoryScreen()
         {
             _rotator.RotateEnabled(true);
             _mouseClickHandler.ClickEnabled(true);
             _victoryScreen.gameObject.SetActive(false);
+            IsAnyWindowOpened = false;
+
         }
 
         public void ShowShopScreen()
@@ -42,6 +47,8 @@ namespace ScreensController
             _rotator.RotateEnabled(false);
             _mouseClickHandler.ClickEnabled(false);
             _shopScreen.gameObject.SetActive(true);
+            IsAnyWindowOpened = true;
+
         }
         
         public void ShowLevelsScreen()
@@ -50,6 +57,7 @@ namespace ScreensController
             _mouseClickHandler.ClickEnabled(false);
             _levelsScreen.gameObject.SetActive(true);
             LevelsScreenOpened?.Invoke();
+            IsAnyWindowOpened = true;
         }
         
         
@@ -60,18 +68,23 @@ namespace ScreensController
             _rotator.RotateEnabled(false);
             _mouseClickHandler.ClickEnabled(false);
             _settingsScreen.gameObject.SetActive(true);
+            IsAnyWindowOpened = true;
         }
  
         public void ShowGameCompletedScreen()
         {
             HideAllScreens();
             _gameIsCompletedScreen.gameObject.SetActive(true);
+            IsAnyWindowOpened = true;
+
         }
         
         public void HideGameCompletedScreen()
         {
             HideAllScreens();
             _gameIsCompletedScreen.gameObject.SetActive(false);
+            IsAnyWindowOpened = false;
+
         }
 
         public void HideAllScreens()
@@ -84,11 +97,15 @@ namespace ScreensController
             _shopScreen.gameObject.SetActive(false);
             _levelsScreen.gameObject.SetActive(false);
             _defeatScreen.gameObject.SetActive(false);
+            IsAnyWindowOpened = false;
+
         }
         
         public void ShowDefeatScreen()
         {
             _defeatScreen.gameObject.SetActive(true);
+            IsAnyWindowOpened = true;
+
         }
 
 

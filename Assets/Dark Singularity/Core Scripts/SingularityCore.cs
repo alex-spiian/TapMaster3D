@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(SphereCollider))]
 public class SingularityCore : MonoBehaviour
@@ -9,7 +10,7 @@ public class SingularityCore : MonoBehaviour
     //by default, the game objects are simply turned off
     //as this is much more performant than destroying the objects
 
-    [SerializeField] private BlackHole _blackHole;
+    [FormerlySerializedAs("_blackHole")] [SerializeField] private BlackHoleController blackHoleController;
     private int _countCubesDestroy;
     
     private void Awake()
@@ -36,7 +37,7 @@ public class SingularityCore : MonoBehaviour
             _countCubesDestroy++;
             Debug.Log(_countCubesDestroy);
             
-            _blackHole.OnCubeWasDestroyed();
+            blackHoleController.OnCubeWasDestroyed();
         }
     }
 

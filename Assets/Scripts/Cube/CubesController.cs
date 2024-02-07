@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Cube
 {
@@ -8,14 +9,14 @@ namespace Cube
         public event Action LastCubeWasGone;
 
         [SerializeField] private LevelsSpawner _levelsSpawner;
-        [SerializeField] private BlackHole _blackHole;
+        [FormerlySerializedAs("_blackHole")] [SerializeField] private BlackHoleController blackHoleController;
         public int CountCubsInTotal { get; private set; }
         private int _countGoneCubes;
 
         public void Initialize()
         {
             CountCubsInTotal = _levelsSpawner.CubesCount;
-            _blackHole.BlackHoleWasClosed += MarkCubesAsGone;
+            blackHoleController.BlackHoleWasClosed += MarkCubesAsGone;
             
             Debug.Log("cubes count = " + CountCubsInTotal);
         }
@@ -43,7 +44,7 @@ namespace Cube
 
         private void OnDestroy()
         {
-            _blackHole.BlackHoleWasClosed -= MarkCubesAsGone;
+            blackHoleController.BlackHoleWasClosed -= MarkCubesAsGone;
         }
     }
 }

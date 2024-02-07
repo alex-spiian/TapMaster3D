@@ -17,13 +17,11 @@ public class LevelsSpawner : MonoBehaviour
     [SerializeField] private GameObject[] _levelsPrefabs;
     [SerializeField] private Transform _parentTransform;
     [SerializeField] private MovesCounter _movesCounter;
-
-
+    
     private CubeMover[] _allCubesOfCurrentLevel;
     private readonly List<Vector3> _cubesTargetPositions = new();
     private GameObject _currentLevel;
     
-
     public void SpawnLevel(int currentLevel)
     {
         if (currentLevel >= _levelsPrefabs.Length)

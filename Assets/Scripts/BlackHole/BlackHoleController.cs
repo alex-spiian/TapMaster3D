@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
+using DefaultNamespace.Inventory;
+using DefaultNamespace.Items;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BlackHole : MonoBehaviour
+public class BlackHoleController : MonoBehaviour
 {
     public event Action<int> BlackHoleWasClosed;
+    public bool IsActive;
     [SerializeField] private Transform _levelPosition;
+    [SerializeField] private Rotator _rotator;
     private int _maxDistance = 100;
     private Vector3 _initialScale;
     private int _destroyedCubesCount;
@@ -17,6 +21,16 @@ public class BlackHole : MonoBehaviour
         _initialScale = transform.localScale;
     }
 
+    public void Activate()
+    {
+        if (IsActive) return;
+        
+        IsActive = true;
+        gameObject.SetActive(true);
+        _rotator.RotateAround();
+        OnEnableBlackHole();
+    }
+
     public void OnEnableBlackHole()
     {
         var direction = _levelPosition.position - transform.position;
@@ -24,6 +38,10 @@ public class BlackHole : MonoBehaviour
         {
             StartCoroutine(OnEnableBlackHoleCoroutine(ray));
         }
+    }
+    public void OnCubeWasDestroyed()
+    {
+        _destroyedCubesCount++;
     }
 
     private IEnumerator OnEnableBlackHoleCoroutine(Ray ray)
@@ -57,15 +75,15 @@ public class BlackHole : MonoBehaviour
 
     private void CloseBlackHole()
     {
-        transform.DOScale(Vector3.zero, 1f).OnComplete(() => transform.gameObject.SetActive(false));
+        transform.DOScale(Vector3.zero, 1f).OnComplete(() =>
+        {
+            transform.gameObject.SetActive(false);
+            IsActive = false;
+        });
+        
         BlackHoleWasClosed?.Invoke(_destroyedCubesCount);
         _destroyedCubesCount = 0;
     }
-
-    public void OnCubeWasDestroyed()
-    {
-        _destroyedCubesCount++;
-    }
- 
+    
     
 }
