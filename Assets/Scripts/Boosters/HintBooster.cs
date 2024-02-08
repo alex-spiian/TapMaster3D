@@ -7,47 +7,55 @@ using UnityEngine;
 
 public class HintBooster : MonoBehaviour
 {
-   [SerializeField] private LevelsSpawner _levelsSpawner;
+    [SerializeField] private LevelsSpawner _levelsSpawner;
+    [SerializeField] private Rotator _rotator;
 
-   private List<CubeMover> _listAvailableCubes = new ();
+    private List<CubeMover> _listAvailableCubes = new ();
    
 
-   public void LookForAvailableCubes()
-   {
-      if (_listAvailableCubes.Count!=null)
-      {
-         _listAvailableCubes.Clear();
-      }
-      var allCubes = _levelsSpawner._allCubesOfCurrentLevel;
-      for (var i = 0; i < allCubes.Length; i++)
-      {
-         if (allCubes[i]!=null&& !allCubes[i].IsMoving)
-         {
-            if (allCubes[i].IsWayFree())
+    public void LookForAvailableCubes()
+    {
+        if (_listAvailableCubes.Count!=null)
+        {
+            _listAvailableCubes.Clear();
+        }
+        var allCubes = _levelsSpawner._allCubesOfCurrentLevel;
+        for (var i = 0; i < allCubes.Length; i++)
+        {
+            if (allCubes[i]!=null&& !allCubes[i].IsMoving)
             {
-               _listAvailableCubes.Add(allCubes[i]);
-            }
+                if (allCubes[i].IsWayFree())
+                {
+                    _listAvailableCubes.Add(allCubes[i]);
+                }
             
-         }
-      }
-   }
-   [UsedImplicitly]
-   public void HighlightRandomCubes()
-   {
-      StartCoroutine(HighlightRandomCubesCoroutine());
-   }
+            }
+        }
+    }
+    [UsedImplicitly]
+    public void HighlightRandomCubes()
+    {
+        StartCoroutine(HighlightRandomCubesCoroutine());
+    }
 
-   public IEnumerator HighlightRandomCubesCoroutine()
-   {
-      for (var i = 0; i < _listAvailableCubes.Count; i++)
-      {
-         _listAvailableCubes[i].transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 0.5f);
+    public IEnumerator HighlightRandomCubesCoroutine()
+    {
+        for (var i = 0; i < 5; i++)
+        {
+         
+            _listAvailableCubes[i].transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 0.5f);
             yield return new WaitForSeconds(0.2f);
-            if (_listAvailableCubes[i] != null)
-            {
-               _listAvailableCubes[i].transform.DOScale(new Vector3(1f, 1f, 1f), 0.5f);
-            }
+            _listAvailableCubes[i].transform.DOScale(new Vector3(0.9f, 0.9f, 0.9f), 0.5f);
+            yield return new WaitForSeconds(0.1f);
+            var cube = _listAvailableCubes[i].GetComponent<Rigidbody>();
+            cube.isKinematic = false;
+            cube.AddForce(new Vector3(100,100,100));
+            // _rotator.RotateAround();
+            yield return new WaitForSeconds(0.5f);
+            cube.useGravity = true;
             
-      }
-   }
+
+
+        }
+    }
 }
