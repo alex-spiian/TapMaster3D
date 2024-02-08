@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using DefaultNamespace.Inventory;
 using DefaultNamespace.Items;
+using DefaultNamespace.SoundsManager;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,10 +16,12 @@ public class BlackHoleController : MonoBehaviour
     private int _maxDistance = 100;
     private Vector3 _initialScale;
     private int _destroyedCubesCount;
+    private SoundsManager _soundsManager; // Звук
     
     private void Awake()
     {
         _initialScale = transform.localScale;
+        _soundsManager = Container.Instance.SoundsManager; // звук
     }
 
     public void Activate()
@@ -37,6 +40,7 @@ public class BlackHoleController : MonoBehaviour
         var ray = new Ray(transform.position, direction);
         {
             StartCoroutine(OnEnableBlackHoleCoroutine(ray));
+            _soundsManager.PlayBlackHole();
         }
     }
     public void OnCubeWasDestroyed()

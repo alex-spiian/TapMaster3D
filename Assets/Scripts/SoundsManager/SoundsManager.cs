@@ -14,7 +14,10 @@ namespace DefaultNamespace.SoundsManager
         [SerializeField] private AudioClip _victory;
         [SerializeField] private AudioClip _defeat;
         [SerializeField] private AudioClip _laser;
-        
+        [SerializeField] private AudioClip _rocket;
+        [SerializeField] private AudioClip _explosion;
+        [SerializeField] private AudioClip _blackHole;
+        [SerializeField] private AudioClip _destroyCubeInHole;
         
         public void PlayBackground()
         {
@@ -54,6 +57,26 @@ namespace DefaultNamespace.SoundsManager
         public void PlayShotLaser()
         {
             _audioSource.PlayOneShot(_laser);
+        }
+        
+        public void PlayShotRocket()
+        {
+            _audioSource.PlayOneShot(_rocket);
+        }
+        
+        public void PlayExplosion()
+        {
+            _audioSource.PlayOneShot(_explosion);
+        }
+        
+        public void PlayBlackHole()
+        {
+            _audioSource.PlayOneShot(_blackHole);
+        }
+        
+        public void PlayDestroyCubeInHole()
+        {
+            _audioSource.PlayOneShot(_destroyCubeInHole);
         }
 
         public void MuteUnmute()

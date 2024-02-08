@@ -1,4 +1,5 @@
 ﻿using System;
+using DefaultNamespace.SoundsManager;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -12,12 +13,15 @@ public class SingularityCore : MonoBehaviour
 
     [FormerlySerializedAs("_blackHole")] [SerializeField] private BlackHoleController blackHoleController;
     private int _countCubesDestroy;
+    private SoundsManager _soundsManager; // Звук
     
     private void Awake()
     {
         if(GetComponent<SphereCollider>()){
             GetComponent<SphereCollider>().isTrigger = true;
         }
+        
+        _soundsManager = Container.Instance.SoundsManager; // звук
     }
     
     
@@ -38,6 +42,8 @@ public class SingularityCore : MonoBehaviour
             Debug.Log(_countCubesDestroy);
             
             blackHoleController.OnCubeWasDestroyed();
+            
+            _soundsManager.PlayDestroyCubeInHole();
         }
     }
 
