@@ -30,6 +30,14 @@ namespace DefaultNamespace.Player
             _wallet.SpendMoney(item.Price);
             _inventory.AddNewItem(item);
         }
+        
+        
+        public void TryBuy(Skin.Skin skin)
+        {
+            if (!_wallet.HasEnoughMoney(skin.Price)) return;
 
+            _wallet.SpendMoney(skin.Price);
+            _inventory.AddNewItem(skin);
+        }
     }
 }

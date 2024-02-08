@@ -7,14 +7,10 @@ namespace DefaultNamespace
 {
     public class GameController : MonoBehaviour
     {
-        [SerializeField]
-        private ScreensController.ScreensController _screensController;
-        [SerializeField]
-        private CubesController _cubesController;
-
+        [SerializeField] private ScreensController.ScreensController _screensController;
+        [SerializeField] private CubesController _cubesController;
         [SerializeField] private MouseClickHandler _mouseClickHandler;
         [SerializeField] private MovesCounter _movesCounter;
-
         [SerializeField] private WonMoneyController _wonMoneyController;
         [SerializeField] private WonMoneyControllerView _wonMoneyControllerView;
         [SerializeField] private Wallet _wallet;
@@ -27,17 +23,19 @@ namespace DefaultNamespace
         {
             _cubesController.LastCubeWasGone += _screensController.ShowVictoryScreen;
             _cubesController.LastCubeWasGone += _soundsManager.PlayVictory;
-            _screensController.VictoryScreenLoaded += _wonMoneyControllerView.ShowCountingCubes;
             _cubesController.LastCubeWasGone += _wonMoneyController.CalculateWonAmountMoney;
+
             _wonMoneyController.WinningMoneyCalculated += _wonMoneyControllerView.SetWonAmountMoney;
             _wonMoneyController.WinningMoneyCalculated += _wallet.AddMoney;
-            _wallet.AmountMoneyUpdated += _walletView.SetAmountMoney;
-            _wallet.AmountMoneyUpdated += _walletView.SetAmountMoney;
 
             _mouseClickHandler.CubeWasTaped += _movesCounter.SpendOneMove;
             _mouseClickHandler.CubeWasTaped += _soundsManager.PlayClick;
+            
             _movesCounter.AllMovesWasSpent += _screensController.ShowDefeatScreen;
             _movesCounter.AllMovesWasSpent += _soundsManager.PlayDefeat;
+            
+            _screensController.VictoryScreenLoaded += _wonMoneyControllerView.ShowCountingCubes;
+            _wallet.AmountMoneyUpdated += _walletView.SetAmountMoney;
         }
         
         public void StartGame()
@@ -58,14 +56,20 @@ namespace DefaultNamespace
         private void OnDestroy()
         {
             _cubesController.LastCubeWasGone -= _screensController.ShowVictoryScreen;
-            _screensController.VictoryScreenLoaded -= _wonMoneyControllerView.ShowCountingCubes;
+            _cubesController.LastCubeWasGone -= _soundsManager.PlayVictory;
             _cubesController.LastCubeWasGone -= _wonMoneyController.CalculateWonAmountMoney;
+
             _wonMoneyController.WinningMoneyCalculated -= _wonMoneyControllerView.SetWonAmountMoney;
             _wonMoneyController.WinningMoneyCalculated -= _wallet.AddMoney;
-            _wallet.AmountMoneyUpdated -= _walletView.SetAmountMoney;
-            
+
             _mouseClickHandler.CubeWasTaped -= _movesCounter.SpendOneMove;
+            _mouseClickHandler.CubeWasTaped -= _soundsManager.PlayClick;
+            
             _movesCounter.AllMovesWasSpent -= _screensController.ShowDefeatScreen;
+            _movesCounter.AllMovesWasSpent -= _soundsManager.PlayDefeat;
+            
+            _screensController.VictoryScreenLoaded -= _wonMoneyControllerView.ShowCountingCubes;
+            _wallet.AmountMoneyUpdated -= _walletView.SetAmountMoney;
         }
         
     }

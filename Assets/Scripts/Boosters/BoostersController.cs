@@ -3,6 +3,7 @@ using DefaultNamespace.Inventory;
 using DefaultNamespace.Items;
 using DefaultNamespace.Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Boosters
 {
@@ -10,7 +11,8 @@ namespace Boosters
     {
         [SerializeField] private Inventory _inventory;
         [SerializeField] private BlackHoleController blackHoleController;
-        [SerializeField] private Shot _shot;
+        [SerializeField] private LaserShot laserShot;
+        [SerializeField] private RocketShot _rocketShot;
         
         public void TryActivateBooster(string type)
         {
@@ -35,9 +37,16 @@ namespace Boosters
                     }
                     break;
                 case ItemsType.Laser:
-                    if (!_shot.CanShoot)
+                    if (!laserShot.CanShoot)
                     {
-                        _shot.ActiveShot();
+                        laserShot.ActiveShot();
+                        _inventory.SpendItem(booster.Type);
+                    }
+                    break;
+                case ItemsType.Rocket:
+                    if (!_rocketShot.CanShoot)
+                    {
+                        _rocketShot.ActiveShot();
                         _inventory.SpendItem(booster.Type);
                     }
                     break;

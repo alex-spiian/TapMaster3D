@@ -4,27 +4,30 @@ using UnityEngine.Serialization;
 
 public class Wallet : MonoBehaviour 
 {
-    public event Action<int> AmountMoneyUpdated;
+    public event Action<int,int> AmountMoneyUpdated;
     public event Action MoneyWasNotEnough;
     public int Money { get; private set; }
 
 
-    private void Awake()
+    private void Start()
     {
         Money = 1000;
-        AmountMoneyUpdated?.Invoke(Money);
+        var previousValueMoney = Money;
+        AmountMoneyUpdated?.Invoke(previousValueMoney, Money);
     }
 
     public void AddMoney(int wonMoney)
     {
+        var previousValueMoney = Money;
         Money += wonMoney;
-        AmountMoneyUpdated?.Invoke(Money);
+        AmountMoneyUpdated?.Invoke(previousValueMoney, Money);
     }
 
     public void SpendMoney(int price)
     {
+        var previousValueMoney = Money;
         Money -= price;
-        AmountMoneyUpdated?.Invoke(Money);
+        AmountMoneyUpdated?.Invoke(previousValueMoney, Money);
     }
 
     public bool HasEnoughMoney(int price)
@@ -41,8 +44,9 @@ public class Wallet : MonoBehaviour
 
     public void SetDefaultMoney()
     {
-        Money = 0;
-        AmountMoneyUpdated?.Invoke(Money);
+        Money = 100;
+        var previousValueMoney = Money;
+        AmountMoneyUpdated?.Invoke(0, Money);
     }
 }
 

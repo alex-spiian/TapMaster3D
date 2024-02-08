@@ -10,19 +10,21 @@ namespace DefaultNamespace.Player
     {
         [SerializeField] private TextMeshProUGUI _blackHoleCount;
         [SerializeField] private TextMeshProUGUI _laserCount;
+        [SerializeField] private TextMeshProUGUI _rocketsCount;
         
         [SerializeField] private Inventory _inventory;
 
         private void Start()
         {
            UpdateInventoryView();
-           _inventory.ItemsWereChanged += UpdateInventoryView;
+           _inventory.BoosterWasAdded += UpdateInventoryView;
         }
 
         public void UpdateInventoryView()
         {
             UpdateItemCountView(ItemsType.BlackHole, _blackHoleCount);
             UpdateItemCountView(ItemsType.Laser, _laserCount);
+            UpdateItemCountView(ItemsType.Rocket, _rocketsCount);
         }
         
         private void UpdateItemCountView(ItemsType itemType, TextMeshProUGUI countText)
@@ -43,7 +45,7 @@ namespace DefaultNamespace.Player
 
         private void OnDestroy()
         {
-            _inventory.ItemsWereChanged -= UpdateInventoryView;
+            _inventory.BoosterWasAdded -= UpdateInventoryView;
 
         }
     }

@@ -3,7 +3,7 @@ using DefaultNamespace.SoundsManager;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Shot : MonoBehaviour
+public class LaserShot : MonoBehaviour
 {
     [SerializeField] private GameObject _objectToShoot; // Префаб объекта, который вы будете стрелять
     [SerializeField] private float _shootForce; // Сила выстрела 30

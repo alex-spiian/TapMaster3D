@@ -8,7 +8,6 @@ namespace Level
 {
     public class LevelView : MonoBehaviour
     {
-
         [SerializeField] private TextMeshProUGUI _currentLevelLable;
         
         private void Awake()

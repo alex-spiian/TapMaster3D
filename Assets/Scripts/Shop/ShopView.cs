@@ -8,7 +8,7 @@ namespace DefaultNamespace.Shop
         [SerializeField] private Color _initialColor;
         [SerializeField] private Button _skinsButton;
         [SerializeField] private Button _boostersButton;
-
+        
         private Button _selectedButton;
         private void Awake()
         {

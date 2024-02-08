@@ -5,6 +5,7 @@ namespace DefaultNamespace.Inventory
         BlackHole,
         Laser,
         Rocket,
-        Moves
+        
+        Skin,
     }
 }

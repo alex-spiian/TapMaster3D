@@ -3,33 +3,50 @@ using System.Collections.Generic;
 using DefaultNamespace.Items;
 using UnityEngine;
 using System.Linq;
+using Boosters;
 using DefaultNamespace.Inventory;
+using Skin;
 
 namespace DefaultNamespace.Player
 {
     public class Inventory : MonoBehaviour
     {
-        public event Action ItemsWereChanged;
-        public List<IItem> Items { get; private set; } = new List<IItem>();
+        public event Action BoosterWasAdded;
+        [SerializeField] private SkinsView _skinsView;
+        public List<IBooster> Boosters { get; private set; } = new List<IBooster>();
+        public List<ISkin> Skins { get; private set; } = new List<ISkin>();
         
         private void Start()
         {
-            Items.Add(new BlackHoleItem());
-            Items.Add(new LaserItem());
+            Boosters.Add(new BlackHoleBooster());
+            Boosters.Add(new LaserBooster());
+            Boosters.Add(new RocketBooster());
             //SetDefaultBoosters();
         }
 
 
         public void AddNewItem(IItem item)
         {
-            item.AddItem();
-            ItemsWereChanged?.Invoke();
-            Debug.Log("ты купил " + item.Type);
+            if (item.Type == ItemsType.Skin)
+            {
+                var skin = (ISkin)item;
+                skin.IsBought = true;
+                Skins.Add(skin);
+                _skinsView.UpdateSkinsView(skin);
+                Debug.Log("ты купил " + item.Type);
+
+                return;
+            }
+
+            var booster = (IBooster)item;
+            booster.AddItem();
+            BoosterWasAdded?.Invoke();
+            Debug.Log("ты купил " + booster.Type);
         }
          
-        public IItem GetItemByType(ItemsType itemsType)
+        public IBooster GetItemByType(ItemsType itemsType)
         {
-            foreach (var item in Items)
+            foreach (var item in Boosters)
             {
                 if (item.Type == itemsType)
                 {
@@ -38,43 +55,20 @@ namespace DefaultNamespace.Player
             }
             return null;
         }
-       //public int GetBoughtItemsCount(ItemsType type)
-       //{
-       //    //var count = Items.FirstOrDefault(booster => booster.Type == type).Count;
 
-       //    var item = Items.Find(item => item.Type == type);
-       //    Debug.Log("item = " + item);
-       //    Debug.Log("item type = " + item.Type);
-       //    Debug.Log("item count = " + item.Count);
-
-       //    return item.Count;
-       //}
 
         public void SpendItem(ItemsType type)
         {
-            for (int i = 0; i < Items.Count; i++)
+            for (int i = 0; i < Boosters.Count; i++)
             {
-                if (Items[i].Type == type)
+                if (Boosters[i].Type == type)
                 {
-                    Items[i].SpendItem();
-                    ItemsWereChanged?.Invoke();
+                    Boosters[i].SpendItem();
+                    BoosterWasAdded?.Invoke();
                     return;
                 }
             }
         }
-        
-        public void SpendItem(string type)
-        {
-            if (Enum.TryParse<ItemsType>(type, out var boosterType))
-            {
-                SpendItem(boosterType);
-            }
-            else
-            {
-                Debug.LogError("Failed to parse ItemType from string: " + type);
-            }
-        }
-        
 
     }
 }

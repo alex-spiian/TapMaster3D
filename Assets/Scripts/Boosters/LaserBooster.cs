@@ -1,23 +1,23 @@
 using System;
+using Boosters;
 using DefaultNamespace.Inventory;
 using UnityEngine;
 
 namespace DefaultNamespace.Items
 {
-    public class LaserItem : IItem
+    public class LaserBooster : IBooster
     {
-        public event Action<int, IItem> WasBought;
         [field:SerializeField]
         public ItemsType Type { get; private set; }
         [field:SerializeField]
         public int Price { get; private set; }
         public int Count { get; private set; }
 
-        public LaserItem()
+        public LaserBooster()
         {
             Type = ItemsType.Laser;
             Count = 3;
-            Price = 100;
+            Price = 500;
         }
 
         public void SpendItem()
@@ -29,10 +29,6 @@ namespace DefaultNamespace.Items
         {
             Count++;
         }
-        
-        public void Activate()
-        {
-            // activate
-        }
+     
     }
 }

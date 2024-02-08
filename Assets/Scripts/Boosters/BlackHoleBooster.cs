@@ -1,24 +1,24 @@
 using System;
+using Boosters;
 using DefaultNamespace.Inventory;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace DefaultNamespace.Items
 {
-    public class BlackHoleItem :  IItem
+    public class BlackHoleBooster : IBooster
     {
-        public event Action<int, IItem> WasBought;
         [field:SerializeField]
         public ItemsType Type { get; private set; }
         [field:SerializeField]
         public int Price { get; private set; }
         public int Count { get; private set; }
         
-        public BlackHoleItem()
+        public BlackHoleBooster()
         {
             Type = ItemsType.BlackHole;
             Count = 3;
-            Price = 200;
+            Price = 300;
         }
 
         public void SpendItem()

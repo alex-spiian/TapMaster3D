@@ -9,7 +9,7 @@ namespace Cube
         public event Action LastCubeWasGone;
 
         [SerializeField] private LevelsSpawner _levelsSpawner;
-        [FormerlySerializedAs("_blackHole")] [SerializeField] private BlackHoleController blackHoleController;
+        [SerializeField] private BlackHoleController blackHoleController;
         public int CountCubsInTotal { get; private set; }
         private int _countGoneCubes;
 

@@ -77,8 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1001 &176812248263400190
 PrefabInstance:
   m_ObjectHideFlags: 0
