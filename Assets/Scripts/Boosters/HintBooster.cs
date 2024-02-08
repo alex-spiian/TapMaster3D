@@ -1,17 +1,23 @@
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class HintBooster : MonoBehaviour
 {
    [SerializeField] private LevelsSpawner _levelsSpawner;
-   [SerializeField] private ParticleSystem _particle;
 
    private List<CubeMover> _listAvailableCubes = new ();
    
 
-   private void LookForAvailableCubes()
+   public void LookForAvailableCubes()
    {
+      if (_listAvailableCubes.Count!=null)
+      {
+         _listAvailableCubes.Clear();
+      }
       var allCubes = _levelsSpawner._allCubesOfCurrentLevel;
       for (var i = 0; i < allCubes.Length; i++)
       {
@@ -25,21 +31,23 @@ public class HintBooster : MonoBehaviour
          }
       }
    }
-
-   private void HighlightRandomCubes()
+   [UsedImplicitly]
+   public void HighlightRandomCubes()
    {
-      var randomIndex = Random.Range(0, _listAvailableCubes.Count);
-      var cube = _listAvailableCubes[randomIndex];
-      var particleAura = Instantiate(_particle);
-      particleAura.transform.SetParent(cube.transform);
-      cube.GetComponent<Outline>();
-
+      StartCoroutine(HighlightRandomCubesCoroutine());
    }
 
-   public void ActivateHintBooster()
+   public IEnumerator HighlightRandomCubesCoroutine()
    {
-      LookForAvailableCubes();
-      HighlightRandomCubes();
+      for (var i = 0; i < _listAvailableCubes.Count; i++)
+      {
+         _listAvailableCubes[i].transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 0.5f);
+            yield return new WaitForSeconds(0.2f);
+            if (_listAvailableCubes[i] != null)
+            {
+               _listAvailableCubes[i].transform.DOScale(new Vector3(1f, 1f, 1f), 0.5f);
+            }
+            
+      }
    }
-   
 }

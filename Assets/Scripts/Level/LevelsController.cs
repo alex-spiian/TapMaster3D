@@ -10,6 +10,7 @@ namespace Level
         [SerializeField] private LevelView levelView;
         [SerializeField] private LevelsScreenController _levelsScreenController;
         [SerializeField] private CubesController _cubesController;
+        [SerializeField] private HintBooster _hintBooster;
 
         private void Awake()
         {
@@ -24,6 +25,7 @@ namespace Level
             _levelsSwitcher.GameWasStartedFromBeginning += _levelsScreenController.UpdateLevelsScreen;
             _levelsSwitcher.GameWasStartedFromBeginning += _cubesController.Reset;
             _levelsSwitcher.LevelWasRestarted += _cubesController.Reset;
+            _levelsSwitcher.LevelWasRestarted += _hintBooster.LookForAvailableCubes;
 
         }
 
@@ -36,6 +38,7 @@ namespace Level
             _levelsSwitcher.GameWasStartedFromBeginning -= _levelsScreenController.UpdateLevelsScreen;
             _levelsSwitcher.GameWasStartedFromBeginning -= _cubesController.Reset;
             _levelsSwitcher.LevelWasRestarted -= _cubesController.Reset;
+            _levelsSwitcher.LevelWasRestarted -= _hintBooster.LookForAvailableCubes;
         }
     }
 }
