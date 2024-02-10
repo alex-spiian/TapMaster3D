@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 2185099197423644224}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.34, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -244,7 +244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64bb88ee870a43ec9ef26cb0f155a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
+  _levelSpawnerConfig: {fileID: 0}
+  _levelsPrefabs: []
+  _parentTransform: {fileID: 0}
+  _movesCounter: {fileID: 0}
 --- !u!114 &-6604686963117045757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +671,7 @@ GameObject:
   - component: {fileID: 7319318971993037176}
   m_Layer: 0
   m_Name: CubeForward(Clone)
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -681,15 +684,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7874097919473545302}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: -1.34, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2495903088489601582}
   - {fileID: 143537262660430608}
   m_Father: {fileID: 6109517270265674363}
-  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &4474695153368497463
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -731,8 +734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &8193378722195715804
 GameObject:
   m_ObjectHideFlags: 0

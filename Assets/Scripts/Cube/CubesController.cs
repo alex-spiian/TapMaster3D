@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace.Player;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -6,8 +7,9 @@ namespace Cube
 {
     public class CubesController : MonoBehaviour
     {
-        public event Action LastCubeWasGone;
+        //public event Action LastCubeWasGone;
 
+        [SerializeField] private FinishLevelHandler _finishLevelHandler;
         [SerializeField] private LevelsSpawner _levelsSpawner;
         [SerializeField] private BlackHoleController blackHoleController;
         public int CountCubsInTotal { get; private set; }
@@ -18,7 +20,6 @@ namespace Cube
             CountCubsInTotal = _levelsSpawner.CubesCount;
             blackHoleController.BlackHoleWasClosed += MarkCubesAsGone;
             
-            Debug.Log("cubes count = " + CountCubsInTotal);
         }
 
         public CubesController(int countCubsInTotal)
@@ -33,7 +34,7 @@ namespace Cube
 
             if (_countGoneCubes == CountCubsInTotal)
             {
-                LastCubeWasGone?.Invoke();
+                _finishLevelHandler.OnAllCubesAreGone();
             }
         }
 

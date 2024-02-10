@@ -32,10 +32,10 @@ public class LaserShot : MonoBehaviour
             _mouseClickHandler.ClickEnabled(false);
         }
         // Проверяем нажатие кнопки мыши и возможность стрелять
-        if (Input.GetMouseButtonDown(0) && CanShoot && _shotsRemaining > 0 && !_screensController.IsAnyWindowOpened)
+        if (Input.GetMouseButton(0) && CanShoot && _shotsRemaining > 0 && !_screensController.IsAnyWindowOpened)
         {
 
-            // Создаем луч из позиции мыши в мировом пространстве
+                // Создаем луч из позиции мыши в мировом пространстве
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 

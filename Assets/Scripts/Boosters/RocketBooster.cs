@@ -8,12 +8,12 @@ namespace Boosters
     {
         public ItemsType Type { get; }
         public int Price { get; private set; }
-        public int Count { get; private set; }
+        public int Count { get; set; }
 
         public RocketBooster()
         {
             Type = ItemsType.Rocket;
-            Price = 200;
+            Price = 250;
             Count = 3;
         }
         public void SpendItem()

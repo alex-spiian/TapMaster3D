@@ -13,17 +13,8 @@ namespace DefaultNamespace.Player
     {
         public event Action BoosterWasAdded;
         [SerializeField] private SkinsView _skinsView;
-        public List<IBooster> Boosters { get; private set; } = new List<IBooster>();
-        public List<ISkin> Skins { get; private set; } = new List<ISkin>();
-        
-        private void Start()
-        {
-            Boosters.Add(new BlackHoleBooster());
-            Boosters.Add(new LaserBooster());
-            Boosters.Add(new RocketBooster());
-            //SetDefaultBoosters();
-        }
-
+        private readonly List<IBooster> _boosters = new();
+        private List<ISkin> _skins  = new();
 
         public void AddNewItem(IItem item)
         {
@@ -31,9 +22,8 @@ namespace DefaultNamespace.Player
             {
                 var skin = (ISkin)item;
                 skin.IsBought = true;
-                Skins.Add(skin);
+                _skins.Add(skin);
                 _skinsView.UpdateSkinsView(skin);
-                Debug.Log("ты купил " + item.Type);
 
                 return;
             }
@@ -41,12 +31,12 @@ namespace DefaultNamespace.Player
             var booster = (IBooster)item;
             booster.AddItem();
             BoosterWasAdded?.Invoke();
-            Debug.Log("ты купил " + booster.Type);
+            PlayerPrefs.SetInt(booster.Type.ToString(), booster.Count);
         }
          
         public IBooster GetItemByType(ItemsType itemsType)
         {
-            foreach (var item in Boosters)
+            foreach (var item in _boosters)
             {
                 if (item.Type == itemsType)
                 {
@@ -56,18 +46,49 @@ namespace DefaultNamespace.Player
             return null;
         }
 
-
         public void SpendItem(ItemsType type)
         {
-            for (int i = 0; i < Boosters.Count; i++)
+            for (int i = 0; i < _boosters.Count; i++)
             {
-                if (Boosters[i].Type == type)
+                if (_boosters[i].Type == type)
                 {
-                    Boosters[i].SpendItem();
+                    _boosters[i].SpendItem();
+                    PlayerPrefs.SetInt(_boosters[i].Type.ToString(), _boosters[i].Count);
                     BoosterWasAdded?.Invoke();
                     return;
                 }
             }
+        }
+        
+        public void SetDefaultData()
+        {
+            if (_boosters.Count > 0)
+            {
+                _boosters.Clear();
+            }
+            
+            _boosters.Add(new BlackHoleBooster());
+            _boosters.Add(new LaserBooster());
+            _boosters.Add(new RocketBooster());
+
+            for (int i = 0; i < _boosters.Count; i++)
+            {
+                PlayerPrefs.SetInt(_boosters[i].Type.ToString(), _boosters[i].Count);
+            }
+            BoosterWasAdded?.Invoke();
+        }
+        
+        public void LoadData()
+        {
+            _boosters.Add(new BlackHoleBooster());
+            _boosters.Add(new LaserBooster());
+            _boosters.Add(new RocketBooster());
+            
+            for (int i = 0; i < _boosters.Count; i++)
+            {
+                _boosters[i].Count = PlayerPrefs.GetInt(_boosters[i].Type.ToString());
+            }
+            BoosterWasAdded?.Invoke();
         }
 
     }

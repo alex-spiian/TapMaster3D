@@ -11,13 +11,13 @@ namespace DefaultNamespace.Items
         public ItemsType Type { get; private set; }
         [field:SerializeField]
         public int Price { get; private set; }
-        public int Count { get; private set; }
+        public int Count { get; set; }
 
         public LaserBooster()
         {
             Type = ItemsType.Laser;
+            Price = 250;
             Count = 3;
-            Price = 500;
         }
 
         public void SpendItem()

@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 2306683575175386031}
   m_Layer: 0
   m_Name: CubeForward(Clone)
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,8 +326,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &479681690081188463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1248,7 @@ GameObject:
   - component: {fileID: 2464926237133295552}
   m_Layer: 0
   m_Name: CubeUp(Clone)
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1310,8 +1311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &2389479144097271108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,7 +2610,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64bb88ee870a43ec9ef26cb0f155a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
+  _levelSpawnerConfig: {fileID: 0}
+  _levelsPrefabs: []
+  _parentTransform: {fileID: 0}
+  _movesCounter: {fileID: 0}
 --- !u!114 &-7870498702702668545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2885,7 +2890,7 @@ GameObject:
   - component: {fileID: 2305197623210927110}
   m_Layer: 0
   m_Name: CubeUp(Clone)
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2948,8 +2953,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &5710482482369818900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3613,7 +3619,7 @@ GameObject:
   - component: {fileID: 5439207238822920519}
   m_Layer: 0
   m_Name: CubeForward(Clone)
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3676,8 +3682,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &6491268003110620827
 GameObject:
   m_ObjectHideFlags: 0
@@ -5254,7 +5261,7 @@ GameObject:
   - component: {fileID: 8699604487345874602}
   m_Layer: 0
   m_Name: CubeDown(Clone)
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5317,8 +5324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &8314108662647095676
 GameObject:
   m_ObjectHideFlags: 0
@@ -5333,7 +5341,7 @@ GameObject:
   - component: {fileID: 8740267985986980260}
   m_Layer: 0
   m_Name: CubeLeft(Clone)
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5396,8 +5404,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &8635000953064297329
 GameObject:
   m_ObjectHideFlags: 0
@@ -5412,7 +5421,7 @@ GameObject:
   - component: {fileID: 1502052768608562405}
   m_Layer: 0
   m_Name: CubeUp(Clone)
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5475,8 +5484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &8968737599471441204
 GameObject:
   m_ObjectHideFlags: 0
@@ -5606,7 +5616,7 @@ GameObject:
   - component: {fileID: 9128929709716767644}
   m_Layer: 0
   m_Name: CubeUp(Clone)
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5669,8 +5679,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f62ff492f4b95a9b1475e30a7c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMoving: 0
+  IsGoingToObstacle: 0
   _direction: {x: 0, y: 1, z: 0}
-  _speed: 5
 --- !u!1 &9158909893644534731
 GameObject:
   m_ObjectHideFlags: 0

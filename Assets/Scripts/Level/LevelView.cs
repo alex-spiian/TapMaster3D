@@ -18,7 +18,7 @@ namespace Level
         
         public void UpdateCurrentLevelView()
         {
-            var currentLevel = PlayerPrefs.GetInt(GlobalConstants.CurrentLevel) + 1;
+            var currentLevel = PlayerPrefs.GetInt(GlobalConstants.CURRENT_LEVEL) + 1;
             _currentLevelLable.text = currentLevel.ToString();
         }
         

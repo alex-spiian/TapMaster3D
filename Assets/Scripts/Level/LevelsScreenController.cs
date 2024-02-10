@@ -14,7 +14,6 @@ namespace Level
         [SerializeField] private ScreensController.ScreensController _screensController;
 
         private TextMeshProUGUI[] _levelValueLabels;
-
         public void Initialize()
         {
             _levelValueLabels = new TextMeshProUGUI[_LevelsImages.Length];

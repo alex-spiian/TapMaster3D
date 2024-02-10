@@ -10,7 +10,7 @@ namespace DefaultNamespace.Player
     {
         [SerializeField] private DefaultData _defaultData;
         
-        [SerializeField] private Wallet _wallet;
+        [SerializeField] private Wallet.Wallet _wallet;
         [SerializeField] private Inventory _inventory;
 
         private PlayerDataSaver _playerDataSaver;

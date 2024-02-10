@@ -17,6 +17,7 @@ public class LevelsSpawner : MonoBehaviour
     [SerializeField] private GameObject[] _levelsPrefabs;
     [SerializeField] private Transform _parentTransform;
     [SerializeField] private MovesCounter _movesCounter;
+    [SerializeField] private MouseClickHandler _mouseClickHandler;
     
     private CubeMover[] _allCubesOfCurrentLevel;
     private readonly List<Vector3> _cubesTargetPositions = new();
@@ -24,6 +25,7 @@ public class LevelsSpawner : MonoBehaviour
     
     public void SpawnLevel(int currentLevel)
     {
+        _mouseClickHandler.ClickEnabled(false);
         if (currentLevel >= _levelsPrefabs.Length)
         {
             return;
@@ -55,6 +57,7 @@ public class LevelsSpawner : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
             
         }
+        _mouseClickHandler.ClickEnabled(true);
     }
 
     private void SetStartPositionForChildren()

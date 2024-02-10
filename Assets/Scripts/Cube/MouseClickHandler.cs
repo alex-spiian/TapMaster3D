@@ -6,16 +6,23 @@ using UnityEngine;
 
 public class MouseClickHandler : MonoBehaviour
 {
-    public event Action CubeWasTaped;
-    
+    public event Action CubeWasTapped;
     [SerializeField] private Camera _camera;
 
     private bool CanClick = true;
+    private bool WasMouseButtonClicked;
+    private Vector3 _initialMousePosition;
 
     private void Update()
     {
-        if (!Input.GetMouseButtonDown(0)) return;
+        if (Input.GetMouseButtonDown(0))
+        {
+            _initialMousePosition = Input.mousePosition;
+        }
         
+        if (!Input.GetMouseButtonUp(0)) return;
+        if (Vector3.Distance(_initialMousePosition, Input.mousePosition) >= 10f) return;
+
         if (CanClick)
         {
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
@@ -27,7 +34,7 @@ public class MouseClickHandler : MonoBehaviour
                 if (cubeMover.IsMoving) return;
                 
                 cubeMover.TryMove();
-                CubeWasTaped?.Invoke();
+                CubeWasTapped?.Invoke();
             }
         }
     }

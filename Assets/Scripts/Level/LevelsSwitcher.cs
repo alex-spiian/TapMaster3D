@@ -27,21 +27,19 @@ namespace Level
 
         public void LoadNextLevel()
         {
-            var lastCompleted = PlayerPrefs.GetInt("LastCompletedLevel");
+            var lastCompletedLevel = PlayerPrefs.GetInt("LastCompletedLevel");
             CurrentLevelIndex++;
-            
-            if (PlayerPrefs.GetInt("LastCompletedLevel") <= CurrentLevelIndex)
-            {
-                PlayerPrefs.SetInt("LastCompletedLevel", CurrentLevelIndex);
-            }
 
             if (CurrentLevelIndex < levelsSpawner.LevelsCount)
             {
+                if (lastCompletedLevel <= CurrentLevelIndex)
+                {
+                    PlayerPrefs.SetInt("LastCompletedLevel", CurrentLevelIndex);
+                }
 
                 levelsSpawner.SpawnLevel(CurrentLevelIndex);
-                PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, CurrentLevelIndex);
+                PlayerPrefs.SetInt(GlobalConstants.CURRENT_LEVEL, CurrentLevelIndex);
                 LevelWasChanged?.Invoke();
-                
                 return;
             }
 
@@ -55,14 +53,8 @@ namespace Level
             {
                 return false;
             }
-            
             CurrentLevelIndex = index - 1;
-            PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, index - 1);
-            
-            Debug.Log("current level from prefs " + PlayerPrefs.GetInt(GlobalConstants.CurrentLevel));
-            Debug.Log("current level" + CurrentLevelIndex);
-            Debug.Log("last completed level from prefs " + PlayerPrefs.GetInt("LastCompletedLevel"));
-
+            PlayerPrefs.SetInt(GlobalConstants.CURRENT_LEVEL, index - 1);
             levelsSpawner.SpawnLevel(index - 1);
             LevelWasChanged?.Invoke();
             return true;
@@ -77,29 +69,20 @@ namespace Level
         public void StartFromBeginning()
         {
             CurrentLevelIndex = 0;
-            PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, CurrentLevelIndex);
+            PlayerPrefs.SetInt(GlobalConstants.CURRENT_LEVEL, CurrentLevelIndex);
             PlayerPrefs.SetInt("LastCompletedLevel", CurrentLevelIndex);
             levelsSpawner.SpawnLevel(CurrentLevelIndex);
             GameWasStartedFromBeginning?.Invoke();
         }
 
-        private void LoadCurrentLevelIndex()
+        public void LoadCurrentLevelIndex()
         {
-            if (PlayerPrefs.GetInt("RunningGame", 0) == 0)
-            {
-                CurrentLevelIndex = 0;
-                PlayerPrefs.SetInt("RunningGame", 1);
-                PlayerPrefs.Save();
-            }
-            else
-            {
-                CurrentLevelIndex = PlayerPrefs.GetInt(GlobalConstants.CurrentLevel);
-            }
+            CurrentLevelIndex = PlayerPrefs.GetInt(GlobalConstants.CURRENT_LEVEL);
         }
 
         private void OnDestroy()
         {
-            PlayerPrefs.SetInt(GlobalConstants.CurrentLevel, CurrentLevelIndex);
+            PlayerPrefs.SetInt(GlobalConstants.CURRENT_LEVEL, CurrentLevelIndex);
         }
     }
 }
