@@ -5422,7 +5422,7 @@ MonoBehaviour:
   _levelSpawnerConfig: {fileID: 11400000, guid: 516d37099903d4448bb6eadbe97c08fb, type: 2}
   _levelsPrefabs:
   - {fileID: 2185099197423644224, guid: 6b81509e4d7c1314f9501866ab414e54, type: 3}
-  - {fileID: 4800631921121764337, guid: 48227bf73ba0c37459954ec41d869411, type: 3}
+  - {fileID: 3322582804459400325, guid: dd86287e0419943a0a5750aa0a409110, type: 3}
   - {fileID: 249082181342162878, guid: bfb6fa9ce06f4dd4ea5cd6605baeec20, type: 3}
   - {fileID: 8907612617924783482, guid: 058f6dc20f613e742a101336ddb391aa, type: 3}
   - {fileID: 955016799984205153, guid: b144cbdc92ee52142bd058d9197398e7, type: 3}
@@ -5435,6 +5435,7 @@ MonoBehaviour:
   - {fileID: 955016799984205153, guid: b144cbdc92ee52142bd058d9197398e7, type: 3}
   _parentTransform: {fileID: 1070064651}
   _movesCounter: {fileID: 1012601682}
+  _mouseClickHandler: {fileID: 977095226}
 --- !u!1 &402816317
 GameObject:
   m_ObjectHideFlags: 0
