@@ -9,12 +9,19 @@ public class MouseClickHandler : MonoBehaviour
     public event Action CubeWasTapped;
     [SerializeField] private Camera _camera;
 
-    private bool CanClick = true;
+    private bool CanClick;
     private bool WasMouseButtonClicked;
     private Vector3 _initialMousePosition;
 
     private void Update()
     {
+        Debug.Log(CanClick);
+        
+        if (!CanClick)
+        {
+            return;
+        }
+        
         if (Input.GetMouseButtonDown(0))
         {
             _initialMousePosition = Input.mousePosition;
@@ -32,9 +39,10 @@ public class MouseClickHandler : MonoBehaviour
             {
                 var cubeMover = hit.transform.GetComponent<CubeMover>();
                 if (cubeMover.IsMoving) return;
-                
+
                 cubeMover.TryMove();
                 CubeWasTapped?.Invoke();
+                
             }
         }
     }
@@ -43,6 +51,12 @@ public class MouseClickHandler : MonoBehaviour
     {
         CanClick = onOff;
     }
+    
+    public void ClickEnabled2(bool onOff)
+    {
+        CanClick = onOff;
+    }
+    
     
 
 }

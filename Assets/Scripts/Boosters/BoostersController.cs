@@ -44,13 +44,12 @@ namespace Boosters
                     }
                     break;
                 case ItemsType.Rocket:
-                    if (!_rocketShot.CanShoot)
+                    if (!_rocketShot.IsActive)
                     {
                         _rocketShot.ActiveShot();
                         _inventory.SpendItem(booster.Type);
                     }
                     break;
-                
             }
         }
     }

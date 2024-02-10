@@ -16,6 +16,7 @@ namespace DefaultNamespace.Player
             if (AreAllCubesGone)
             {
                 LevelWasCompleted?.Invoke();
+                AreAllCubesGone = false;
             }
             else
             {

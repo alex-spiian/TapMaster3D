@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DefaultNamespace.Items;
 using DefaultNamespace.Player;
@@ -36,6 +37,14 @@ namespace Skin
             _availableButtons[0].onClick.AddListener(skinSwitcher.SetNewSkin);
             _availableButtons.RemoveAt(0);
             
+        }
+
+        public void SetDefault()
+        {//
+            //for (int i = 0; i < UPPER; i++)
+            //{
+            //    
+            //}
         }
         
 

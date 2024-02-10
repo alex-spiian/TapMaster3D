@@ -11,6 +11,7 @@ public class RocketShot : MonoBehaviour
     [SerializeField] private MouseClickHandler _mouseClickHandler; // Выкл мышки не знаю надо или нет?
 
     public bool CanShoot; // Флаг, позволяющий выполнять выстрел
+    public bool IsActive; // Флаг, позволяющий выполнять выстрел
     private SoundsManager _soundsManager; // Звук
 
     private void Start()
@@ -22,6 +23,9 @@ public class RocketShot : MonoBehaviour
     {
         if (CanShoot)
         {
+            CanShoot = false;
+            IsActive = true;
+            
             GameObject shotObject = Instantiate(_objectToShoot, transform.position, Quaternion.identity);
             
             // Получаем компонент Rigidbody объекта выстрела
@@ -51,13 +55,13 @@ public class RocketShot : MonoBehaviour
             CanShoot = false;
         }
     }
-
     IEnumerator DestroyObjectAfterDelay(GameObject obj, float delay)
     {
         yield return new WaitForSeconds(delay); // Ждем указанное количество секунд
 
         // Уничтожаем объект
         Destroy(obj);
+        IsActive = false;
     }
 
     public void ActiveShot()

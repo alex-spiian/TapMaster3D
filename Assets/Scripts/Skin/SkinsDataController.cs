@@ -31,7 +31,7 @@ namespace Skin
         
         public void SetDefaultData()
         {
-            //_skinsView.UpdateSkinsView(_boughtSkins);
+            // _skinsView.UpdateSkinsView();
         }
     }
 }

@@ -10,7 +10,10 @@ namespace DefaultNamespace
         {
             if (SystemInfo.supportsVibration)
             {
-                Handheld.Vibrate();
+                if (GUI.Button(new Rect(0, 10, 100, 32), "Vibrate!"))
+                {
+                    Handheld.Vibrate();
+                }
             }
         }
     }
