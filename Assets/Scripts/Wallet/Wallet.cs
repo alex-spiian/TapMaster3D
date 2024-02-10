@@ -39,7 +39,7 @@ namespace Wallet
 
        public void SetDefaultMoney(int amount)
        {
-           Money = amount;
+           Money = 5000;
            AmountMoneyUpdated?.Invoke(0, Money);
        }
     }

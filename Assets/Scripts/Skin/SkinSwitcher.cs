@@ -11,6 +11,7 @@ namespace Skin
         public void SetNewSkin()
         {
             Material.color = Color;
+            PlayerPrefs.SetString("CurrentSkin", gameObject.tag);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace DefaultNamespace.Player
     {
         public event Action BoosterWasAdded;
         [SerializeField] private SkinsView _skinsView;
-        private readonly List<IBooster> _boosters = new();
+        private readonly List<IBooster> _boosters = new(); 
         private List<ISkin> _skins  = new();
 
         public void AddNewItem(IItem item)
@@ -21,9 +21,9 @@ namespace DefaultNamespace.Player
             if (item.Type == ItemsType.Skin)
             {
                 var skin = (ISkin)item;
-                skin.IsBought = true;
                 _skins.Add(skin);
                 _skinsView.UpdateSkinsView(skin);
+                skin.IsBought = true;
 
                 return;
             }
@@ -31,6 +31,7 @@ namespace DefaultNamespace.Player
             var booster = (IBooster)item;
             booster.AddItem();
             BoosterWasAdded?.Invoke();
+            
             PlayerPrefs.SetInt(booster.Type.ToString(), booster.Count);
         }
          
@@ -88,8 +89,10 @@ namespace DefaultNamespace.Player
             {
                 _boosters[i].Count = PlayerPrefs.GetInt(_boosters[i].Type.ToString());
             }
+            
             BoosterWasAdded?.Invoke();
         }
+        
 
     }
 }

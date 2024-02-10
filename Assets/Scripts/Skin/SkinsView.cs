@@ -13,13 +13,20 @@ namespace Skin
 
         public void UpdateSkinsView(ISkin skin)
         {
+            
             var icons = _availableButtons[0].gameObject.transform.GetComponentsInChildren<Image>();
+            if (skin.IsBought) return;
+            
             for (int i = 0; i < icons.Length; i++)
             {
                 if (icons[i].CompareTag("Icon"))
                 {
                     icons[i].sprite = skin.Icon;
+                    skin.IsBought = true;
+                    PlayerPrefs.SetInt(skin.Name, 1);
+
                 }
+                
             }
 
             var skinSwitcher =_availableButtons[0].gameObject.AddComponent<SkinSwitcher>();
@@ -28,8 +35,9 @@ namespace Skin
             
             _availableButtons[0].onClick.AddListener(skinSwitcher.SetNewSkin);
             _availableButtons.RemoveAt(0);
-   
+            
         }
+        
 
     }
 }

@@ -20,6 +20,7 @@ namespace DefaultNamespace
         [SerializeField] private LevelsController  _levelsController;
         [SerializeField] private SoundsManager.SoundsManager  _soundsManager;
         [SerializeField] private FinishLevelHandler _finishLevelHandler;
+        [SerializeField] private VibrationController _vibrationController;
         
         private void Awake()
         {
@@ -32,6 +33,7 @@ namespace DefaultNamespace
 
             _mouseClickHandler.CubeWasTapped += _movesCounter.SpendOneMove;
             _mouseClickHandler.CubeWasTapped += _soundsManager.PlayClick;
+            _mouseClickHandler.CubeWasTapped += _vibrationController.OnGUI;
             
             _finishLevelHandler.LevelWasFailed += _screensController.ShowDefeatScreen;
             _finishLevelHandler.LevelWasFailed += _soundsManager.PlayDefeat;
@@ -57,6 +59,8 @@ namespace DefaultNamespace
 
             _mouseClickHandler.CubeWasTapped -= _movesCounter.SpendOneMove;
             _mouseClickHandler.CubeWasTapped -= _soundsManager.PlayClick;
+            _mouseClickHandler.CubeWasTapped -= _vibrationController.OnGUI;
+
             
             _finishLevelHandler.LevelWasFailed -= _screensController.ShowDefeatScreen;
             _finishLevelHandler.LevelWasFailed -= _soundsManager.PlayDefeat;
